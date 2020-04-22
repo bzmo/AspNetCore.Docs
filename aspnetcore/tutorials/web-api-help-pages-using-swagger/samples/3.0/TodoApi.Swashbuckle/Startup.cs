@@ -6,33 +6,36 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using TodoApi.Models;
+using MoviesWatched.Models;
 
-namespace TodoApi
+
+namespace MoviesWatched
 {
     public class Startup
     {
         #region snippet_ConfigureServices
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<TodoContext>(opt =>
+            services.AddDbContext<MovieContext>(opt =>
                 opt.UseInMemoryDatabase("TodoList"));
             services.AddControllers();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
+                c.EnableAnnotations();
+
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "ToDo API",
-                    Description = "A simple example ASP.NET Core Web API",
+                    Title = "Movies Watched API",
+                    Description = "A simple example of ASP.NET Core Web API for movies watched during COVID-19 shelter-in-place.",
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new OpenApiContact
                     {
-                        Name = "Shayne Boyer",
+                        Name = "Bo Mo",
                         Email = string.Empty,
-                        Url = new Uri("https://twitter.com/spboyer"),
+                        Url = new Uri("https://twitter.com/iambzmo"),
                     },
                     License = new OpenApiLicense
                     {
@@ -61,7 +64,7 @@ namespace TodoApi
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movies Watched API V1");
             });
 
             app.UseRouting();
