@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApi", "2.1\TodoApi.Swas
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.0", "3.0", "{3EA3A3F6-07E2-45CA-89D7-9DC0C9DB4A64}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApi", "3.0\TodoApi.Swashbuckle\TodoApi.csproj", "{18C8880D-D9FA-4868-8AC9-3B6D368DBB2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoviesWatched", "3.0\TodoApi.Swashbuckle\MoviesWatched.csproj", "{18C8880D-D9FA-4868-8AC9-3B6D368DBB2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
