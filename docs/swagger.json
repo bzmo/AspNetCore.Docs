@@ -1,5 +1,5 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.1",
   "info": {
     "title": "Movies Watched API",
     "description": "A simple example of ASP.NET Core Web API for movies watched during COVID-19 shelter-in-place.",
