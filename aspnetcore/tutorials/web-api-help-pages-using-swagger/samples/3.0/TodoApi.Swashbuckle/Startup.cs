@@ -41,13 +41,8 @@ namespace MoviesWatched
                     {
                         Name = "Use under LICX",
                         Url = new Uri("https://example.com/license"),
-                    }
+                    },
                 });
-
-                // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
             });
         }
         #endregion
@@ -58,7 +53,10 @@ namespace MoviesWatched
             app.UseStaticFiles();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
+            app.UseSwagger(c =>
+            {
+                c.SerializeAsV2 = true;
+            });
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
