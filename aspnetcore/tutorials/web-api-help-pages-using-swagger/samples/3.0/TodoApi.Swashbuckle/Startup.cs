@@ -20,6 +20,8 @@ namespace MoviesWatched
                 opt.UseInMemoryDatabase("TodoList"));
             services.AddControllers();
 
+            services.AddApiVersioning();
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -34,7 +36,6 @@ namespace MoviesWatched
                     Contact = new OpenApiContact
                     {
                         Name = "Bo Mo",
-                        Email = string.Empty,
                         Url = new Uri("https://twitter.com/iambzmo"),
                     },
                     License = new OpenApiLicense

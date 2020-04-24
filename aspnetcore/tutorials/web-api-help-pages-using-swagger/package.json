@@ -1,0 +1,14 @@
+{
+  "name": "web-api-help-pages-using-swagger",
+  "version": "1.0.0",
+  "description": "1. Run the _MoviesWatched_ project located in __./samples/3.0/TodoApi.Swashbuckle/__ to generate the following:\r     - SwaggerUI: https://localhost:44380/swagger/index.html\r     - Swagger.json: https://localhost:44380/swagger/v1/swagger.json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@autorest/autorest": "^3.0.6187"
+  }
+}

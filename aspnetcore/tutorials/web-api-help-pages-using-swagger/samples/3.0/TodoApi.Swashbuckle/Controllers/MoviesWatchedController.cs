@@ -8,8 +8,9 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace MoviesWatched.Controllers
 {
     #region snippet_TodoController
+    [ApiVersion("1.0")]
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class MoviesWatchedController : ControllerBase
     {
@@ -48,7 +49,7 @@ namespace MoviesWatched.Controllers
         #endregion
 
         #region snippet_GetById
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetMovieByID")]
         [SwaggerOperation(
             Summary = "Gets a specific movie by its ID.",
             Description = "Fetch a movie watched during COVID-19 shelter-in-place.",
@@ -77,12 +78,12 @@ namespace MoviesWatched.Controllers
         )]
         [SwaggerResponse(StatusCodes.Status201Created, "The movie was created.", typeof(Movie))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, "The movie data is invalid.")]
-        public ActionResult<Movie> Create([FromBody, SwaggerParameter("Movie info", Required = true)]Movie movie)
+        public ActionResult<Movie> Create([FromBody, SwaggerParameter("Movie info", Required = true)]Movie movie, ApiVersion version)
         {
             _context.Movies.Add(movie);
             _context.SaveChanges();
 
-            return CreatedAtRoute("GetMovie", new { id = movie.Id }, movie);
+            return CreatedAtRoute("GetMovieByID", new { id = movie.Id, version = $"{version}" }, movie);
         }
         #endregion
 
