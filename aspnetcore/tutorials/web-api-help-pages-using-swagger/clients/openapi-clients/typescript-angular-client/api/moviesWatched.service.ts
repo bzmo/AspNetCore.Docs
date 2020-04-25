@@ -89,14 +89,18 @@ export class MoviesWatchedService {
     /**
      * Creates a Movie.
      * Record a movie watched during COVID-19 shelter-in-place.
+     * @param version 
      * @param movie 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public createMovie(movie?: Movie, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
-    public createMovie(movie?: Movie, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
-    public createMovie(movie?: Movie, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
-    public createMovie(movie?: Movie, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public createMovie(version: string, movie?: Movie, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
+    public createMovie(version: string, movie?: Movie, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
+    public createMovie(version: string, movie?: Movie, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
+    public createMovie(version: string, movie?: Movie, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (version === null || version === undefined) {
+            throw new Error('Required parameter version was null or undefined when calling createMovie.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -129,7 +133,7 @@ export class MoviesWatchedService {
             responseType = 'text';
         }
 
-        return this.httpClient.post<Movie>(`${this.configuration.basePath}/api/MoviesWatched`,
+        return this.httpClient.post<Movie>(`${this.configuration.basePath}/api/v${encodeURIComponent(String(version))}/MoviesWatched`,
             movie,
             {
                 responseType: <any>responseType,
@@ -145,15 +149,19 @@ export class MoviesWatchedService {
      * Deletes a specific Movie.
      * Removes a watched movie.
      * @param id Movie ID
+     * @param version 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public deleteMovieByID(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
-    public deleteMovieByID(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
-    public deleteMovieByID(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
-    public deleteMovieByID(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public deleteMovieByID(id: number, version: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
+    public deleteMovieByID(id: number, version: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
+    public deleteMovieByID(id: number, version: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
+    public deleteMovieByID(id: number, version: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteMovieByID.');
+        }
+        if (version === null || version === undefined) {
+            throw new Error('Required parameter version was null or undefined when calling deleteMovieByID.');
         }
 
         let headers = this.defaultHeaders;
@@ -176,7 +184,7 @@ export class MoviesWatchedService {
             responseType = 'text';
         }
 
-        return this.httpClient.delete<Movie>(`${this.configuration.basePath}/api/MoviesWatched/${encodeURIComponent(String(id))}`,
+        return this.httpClient.delete<Movie>(`${this.configuration.basePath}/api/v${encodeURIComponent(String(version))}/MoviesWatched/${encodeURIComponent(String(id))}`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
@@ -190,13 +198,17 @@ export class MoviesWatchedService {
     /**
      * Gets all watched movies.
      * Fetch all movies watched during COVID-19 shelter-in-place.
+     * @param version 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getAllMovies(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<Movie>>;
-    public getAllMovies(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<Movie>>>;
-    public getAllMovies(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<Movie>>>;
-    public getAllMovies(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public getAllMovies(version: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Array<Movie>>;
+    public getAllMovies(version: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Array<Movie>>>;
+    public getAllMovies(version: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Array<Movie>>>;
+    public getAllMovies(version: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (version === null || version === undefined) {
+            throw new Error('Required parameter version was null or undefined when calling getAllMovies.');
+        }
 
         let headers = this.defaultHeaders;
 
@@ -218,7 +230,7 @@ export class MoviesWatchedService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Array<Movie>>(`${this.configuration.basePath}/api/MoviesWatched`,
+        return this.httpClient.get<Array<Movie>>(`${this.configuration.basePath}/api/v${encodeURIComponent(String(version))}/MoviesWatched`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
@@ -233,15 +245,19 @@ export class MoviesWatchedService {
      * Gets a specific movie by its ID.
      * Fetch a movie watched during COVID-19 shelter-in-place.
      * @param id Movie ID
+     * @param version 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getMovieByID(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
-    public getMovieByID(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
-    public getMovieByID(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
-    public getMovieByID(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public getMovieByID(id: number, version: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
+    public getMovieByID(id: number, version: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
+    public getMovieByID(id: number, version: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
+    public getMovieByID(id: number, version: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getMovieByID.');
+        }
+        if (version === null || version === undefined) {
+            throw new Error('Required parameter version was null or undefined when calling getMovieByID.');
         }
 
         let headers = this.defaultHeaders;
@@ -264,7 +280,7 @@ export class MoviesWatchedService {
             responseType = 'text';
         }
 
-        return this.httpClient.get<Movie>(`${this.configuration.basePath}/api/MoviesWatched/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<Movie>(`${this.configuration.basePath}/api/v${encodeURIComponent(String(version))}/MoviesWatched/${encodeURIComponent(String(id))}`,
             {
                 responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
@@ -279,16 +295,20 @@ export class MoviesWatchedService {
      * Updates an existing Movie.
      * Changes the information for a watched movie.
      * @param id Movie ID
+     * @param version 
      * @param movie 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public updateMovieByID(id: number, movie?: Movie, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
-    public updateMovieByID(id: number, movie?: Movie, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
-    public updateMovieByID(id: number, movie?: Movie, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
-    public updateMovieByID(id: number, movie?: Movie, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+    public updateMovieByID(id: number, version: string, movie?: Movie, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<Movie>;
+    public updateMovieByID(id: number, version: string, movie?: Movie, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<Movie>>;
+    public updateMovieByID(id: number, version: string, movie?: Movie, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<Movie>>;
+    public updateMovieByID(id: number, version: string, movie?: Movie, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateMovieByID.');
+        }
+        if (version === null || version === undefined) {
+            throw new Error('Required parameter version was null or undefined when calling updateMovieByID.');
         }
 
         let headers = this.defaultHeaders;
@@ -322,7 +342,7 @@ export class MoviesWatchedService {
             responseType = 'text';
         }
 
-        return this.httpClient.put<Movie>(`${this.configuration.basePath}/api/MoviesWatched/${encodeURIComponent(String(id))}`,
+        return this.httpClient.put<Movie>(`${this.configuration.basePath}/api/v${encodeURIComponent(String(version))}/MoviesWatched/${encodeURIComponent(String(id))}`,
             movie,
             {
                 responseType: <any>responseType,

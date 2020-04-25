@@ -59,7 +59,7 @@ namespace MoviesWatched.Controllers
         [SwaggerResponse(StatusCodes.Status404NotFound, "The movie was not found.")]
         public ActionResult<Movie> GetById([FromRoute, SwaggerParameter("Movie ID", Required = true)]long id)
         {
-            var movie = _context.Movies.Find(id);
+            Movie movie = _context.Movies.Find(id);
             if (movie == null)
             {
                 return NotFound();
