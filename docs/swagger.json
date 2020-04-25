@@ -6,8 +6,7 @@
     "termsOfService": "https://example.com/terms",
     "contact": {
       "name": "Bo Mo",
-      "url": "https://twitter.com/iambzmo",
-      "email": ""
+      "url": "https://twitter.com/iambzmo"
     },
     "license": {
       "name": "Use under LICX",
@@ -16,7 +15,7 @@
     "version": "v1"
   },
   "paths": {
-    "/api/MoviesWatched": {
+    "/api/v{version}/MoviesWatched": {
       "get": {
         "tags": [
           "MoviesWatched"
@@ -24,6 +23,16 @@
         "summary": "Gets all watched movies.",
         "description": "Fetch all movies watched during COVID-19 shelter-in-place.",
         "operationId": "GetAllMovies",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Movies have been fetched",
@@ -47,6 +56,16 @@
         "summary": "Creates a Movie.",
         "description": "Record a movie watched during COVID-19 shelter-in-place.",
         "operationId": "CreateMovie",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -90,7 +109,7 @@
         }
       }
     },
-    "/api/MoviesWatched/{id}": {
+    "/api/v{version}/MoviesWatched/{id}": {
       "get": {
         "tags": [
           "MoviesWatched"
@@ -107,6 +126,14 @@
             "schema": {
               "type": "integer",
               "format": "int64"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -149,6 +176,14 @@
             "schema": {
               "type": "integer",
               "format": "int64"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -220,6 +255,14 @@
             "schema": {
               "type": "integer",
               "format": "int64"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
