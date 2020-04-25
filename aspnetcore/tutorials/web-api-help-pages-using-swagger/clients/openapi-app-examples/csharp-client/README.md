@@ -62,43 +62,9 @@ nuget pack -Build -OutputDirectory out Org.OpenAPITools.csproj
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
 
 
-## Getting Started
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
-
-namespace Example
-{
-    public class Example
-    {
-        public static void Main()
-        {
-
-            Configuration.Default.BasePath = "http://localhost";
-            var apiInstance = new MoviesWatchedApi(Configuration.Default);
-            var version = version_example;  // string | 
-            var movie = new Movie(); // Movie |  (optional) 
-
-            try
-            {
-                // Creates a Movie.
-                Movie result = apiInstance.CreateMovie(version, movie);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling MoviesWatchedApi.CreateMovie: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-
-        }
-    }
-}
+## Run the Application
+```
+dotnet run
 ```
 
 ## Documentation for API Endpoints
