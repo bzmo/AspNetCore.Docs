@@ -41,7 +41,7 @@ namespace MoviesWatched.Controllers
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
             OperationId = "GetAllMovies"
         )]
-        [SwaggerResponse(200, "Movies have been fetched", typeof(List<Movie>))]
+        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", typeof(List<Movie>))]
         public ActionResult<List<Movie>> GetAll()
         {
             return _context.Movies.ToList();
