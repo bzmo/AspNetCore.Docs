@@ -2,8 +2,9 @@
 This document describes how to generate Client SDKs, modelled after the Swagger.json spec.
 
 ### Pre-requisite
-In a separate Powershell process, start the server:
+In a separate Powershell process, start the server from this directory:
 ```
+cd {HOME_DIR}\AspNetCore.Docs\aspnetcore\tutorials\web-api-help-pages-using-swagger
 dotnet run --urls="https://localhost:44380" -p .\samples\3.0\TodoApi.Swashbuckle\MoviesWatched.csproj
 ```
 ##### Relevant Links upon Application Start:
