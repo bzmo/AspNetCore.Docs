@@ -10,6 +10,7 @@ dotnet run --urls="https://localhost:44380" -p .\samples\3.0\TodoApi.Swashbuckle
 ##### Relevant Links upon Application Start:
 - SwaggerUI: https://localhost:44380/swagger/index.html
 - Swagger.json: https://localhost:44380/swagger/v1/swagger.json
+- Swagger.json: https://localhost:44380/swagger/v2/swagger.json
 
 ### 1. OpenAPI Generator
 ```
@@ -17,7 +18,7 @@ dotnet run --urls="https://localhost:44380" -p .\samples\3.0\TodoApi.Swashbuckle
 ```
 The generated clients can be found in __./clients/openapi-clients/__. See example apps in __./clients/openapi-app-examples__.
 	
-### 2. Azure Autorest
+### 2. Azure Autorest (Selected for Development)
 ```
 ./genAzureAutoRestClients.ps1
 ```
