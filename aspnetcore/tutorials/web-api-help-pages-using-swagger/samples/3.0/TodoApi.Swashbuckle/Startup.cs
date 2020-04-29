@@ -1,13 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Options;
 using MoviesWatched.Models;
-
+using MoviesWatched.SwaggerOptions;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MoviesWatched
 {
@@ -20,36 +18,31 @@ namespace MoviesWatched
                 opt.UseInMemoryDatabase("TodoList"));
             services.AddControllers();
 
-            services.AddApiVersioning();
-
-            // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
+            services.AddApiVersioning(c =>
             {
-                c.EnableAnnotations();
-
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Movies Watched API",
-                    Description = "A simple example of ASP.NET Core Web API for movies watched during COVID-19 shelter-in-place.",
-                    TermsOfService = new Uri("https://example.com/terms"),
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Bo Mo",
-                        Url = new Uri("https://twitter.com/iambzmo"),
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
-                    },
-                });
+                // reporting api versions will return the headers "api-supported-versions" and "api-deprecated-versions"
+                c.ReportApiVersions = true;
             });
+
+            services.AddVersionedApiExplorer(c =>
+            {
+                // add the versioned api explorer, which also adds IApiVersionDescriptionProvider service
+                // note: the specified format code will format the version as "'v'major[.minor][-status]"
+                c.GroupNameFormat = "'v'VVV";
+
+                // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
+                // can also be used to control the format of the API version in route templates
+                c.SubstituteApiVersionInUrl = true;
+            });
+
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+
+            services.AddSwaggerGen();
         }
         #endregion
 
         #region snippet_Configure
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IApiVersionDescriptionProvider provider)
         {
             app.UseStaticFiles();
 
@@ -60,7 +53,15 @@ namespace MoviesWatched
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Movies Watched API V1");
+                foreach (var description in provider.ApiVersionDescriptions)
+                {
+                    c.SwaggerEndpoint(
+                        $"/swagger/{description.GroupName}/swagger.json", 
+                        $"Movies Watched API {description.GroupName.ToUpperInvariant()}"
+                    );
+                }
+                c.DisplayOperationId();
+                c.DisplayRequestDuration();
             });
 
             app.UseRouting();

@@ -23,13 +23,3 @@ The generated clients can be found in __./clients/openapi-clients/__. See exampl
 ```
 
 The generated clients can be found in __./clients/autorest-clients/__. See example apps in __./clients/autorest-app-examples__.
-
-> see https://aka.ms/autorest
-``` yaml
-input-file: swagger.json
-namespace: WatchedMovies.Rest
-typescript:
-  output-folder: ./clients/autorest-clients/typescript-client
-csharp:
-  output-folder: ./clients/autorest-clients/csharp-client 
-```
