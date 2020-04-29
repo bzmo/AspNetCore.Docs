@@ -3,15 +3,15 @@ This document describes how to generate Client SDKs, modelled after the Swagger.
 
 ### Pre-requisites
 
-See the versioned API controllers created [here](https://github.com/bzmo/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Controllers).
+- See the versioned API controllers created [here](https://github.com/bzmo/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/3.0/TodoApi.Swashbuckle/Controllers).
 
-Helpful to read the [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md).
+- Helpful to read the [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md).
 
-In a separate Powershell process, start the server from this directory:
-```
-cd {HOME_DIR}\AspNetCore.Docs\aspnetcore\tutorials\web-api-help-pages-using-swagger
-dotnet run --urls="https://localhost:44380" -p .\samples\3.0\TodoApi.Swashbuckle\MoviesWatched.csproj
-```
+- In a separate Powershell process, start the server from this directory:
+	```
+	cd {HOME_DIR}\AspNetCore.Docs\aspnetcore\tutorials\web-api-help-pages-using-swagger
+	dotnet run --urls="https://localhost:44380" -p .\samples\3.0\TodoApi.Swashbuckle\MoviesWatched.csproj
+	```
 ##### Relevant Links upon Application Start-Up:
 - SwaggerUI: https://localhost:44380/swagger/index.html
 - Swagger.json: https://localhost:44380/swagger/v1/swagger.json
