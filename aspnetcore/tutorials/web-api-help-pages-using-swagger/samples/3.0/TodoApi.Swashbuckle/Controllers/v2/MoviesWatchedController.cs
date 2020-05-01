@@ -27,7 +27,7 @@ namespace MoviesWatched.Controllers.v2
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
             OperationId = nameof(GetAllMovies)
         )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", typeof(IList<Movie>))]
+        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IList<Movie>))]
         public override ActionResult<IList<Movie>> GetAllMovies()
         {
             return _context.Movies.ToList().OrderByDescending(x => x.Name).ToList();

@@ -62,7 +62,7 @@ namespace WatchedMovies.Rest.v1
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static object CreateMovie(this IMoviesWatchedAPI operations, Movie body = default(Movie))
+            public static Movie CreateMovie(this IMoviesWatchedAPI operations, Movie body = default(Movie))
             {
                 return operations.CreateMovieAsync(body).GetAwaiter().GetResult();
             }
@@ -81,7 +81,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> CreateMovieAsync(this IMoviesWatchedAPI operations, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Movie> CreateMovieAsync(this IMoviesWatchedAPI operations, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateMovieWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -99,9 +99,9 @@ namespace WatchedMovies.Rest.v1
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
-            /// Movie ID
+            /// Movie Id
             /// </param>
-            public static object GetMovieById(this IMoviesWatchedAPI operations, long id)
+            public static Movie GetMovieById(this IMoviesWatchedAPI operations, long id)
             {
                 return operations.GetMovieByIdAsync(id).GetAwaiter().GetResult();
             }
@@ -116,12 +116,12 @@ namespace WatchedMovies.Rest.v1
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
-            /// Movie ID
+            /// Movie Id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> GetMovieByIdAsync(this IMoviesWatchedAPI operations, long id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Movie> GetMovieByIdAsync(this IMoviesWatchedAPI operations, long id, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetMovieByIdWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
                 {

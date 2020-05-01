@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MoviesWatched.Models;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 
 namespace MoviesWatched.Controllers.v1
 {
@@ -41,7 +42,7 @@ namespace MoviesWatched.Controllers.v1
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
             OperationId = nameof(GetAllMovies)
         )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", typeof(IList<Movie>))]
+        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IList<Movie>))]
         public virtual ActionResult<IList<Movie>> GetAllMovies()
         {
             return _context.Movies.ToList();
@@ -55,17 +56,17 @@ namespace MoviesWatched.Controllers.v1
             Description = "Fetch a movie watched during COVID-19 shelter-in-place.",
             OperationId = nameof(GetMovieById)
         )]
-        [SwaggerResponse(StatusCodes.Status200OK, "The movie was found.", typeof(Movie))]
-        [SwaggerResponse(StatusCodes.Status404NotFound, "The movie was not found.")]
-        public virtual ActionResult<Movie> GetMovieById([FromRoute, SwaggerParameter("Movie ID", Required = true)] long id)
+        [SwaggerResponse(StatusCodes.Status200OK, "The movie was found.", Type = typeof(Movie))]
+        [SwaggerResponse(StatusCodes.Status404NotFound, "The movie was not found.", Type = typeof(Movie))]
+        public virtual ActionResult<Movie> GetMovieById([FromRoute, SwaggerParameter("Movie Id", Required = true)] long id)
         {
             Movie movie = _context.Movies.Find(id);
             if (movie == null)
             {
-                return NotFound();
+                return NotFound(null);
             }
 
-            return movie;
+            return Ok(movie);
         }
         #endregion
         
@@ -76,13 +77,20 @@ namespace MoviesWatched.Controllers.v1
             Description = "Record a movie watched during COVID-19 shelter-in-place.",
             OperationId = nameof(CreateMovie)
         )]
-        [SwaggerResponse(StatusCodes.Status201Created, "The movie was created.", typeof(Movie))]
-        [SwaggerResponse(StatusCodes.Status400BadRequest, "The movie data is invalid.")]
+        [SwaggerResponse(StatusCodes.Status201Created, "The movie was created.", Type = typeof(Movie))]
+        [SwaggerResponse(StatusCodes.Status400BadRequest, "The movie data is invalid.", Type = typeof(Movie))]
         public virtual ActionResult<Movie> CreateMovie(
             [FromBody, SwaggerParameter("Movie info", Required = true)] Movie movie, ApiVersion version)
         {
-            _context.Movies.Add(movie);
-            _context.SaveChanges();
+            try
+            {
+                _context.Movies.Add(movie);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return BadRequest(null);
+            }
 
             return CreatedAtAction(nameof(GetMovieById), new { id = movie.Id, version = version.ToString() }, movie);
         }

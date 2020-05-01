@@ -81,7 +81,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/Movie"
                 }
               }
             }
@@ -158,7 +158,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Movie ID",
+            "description": "Movie Id",
             "required": true,
             "schema": {
               "type": "integer",
@@ -182,7 +182,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/Movie"
                 }
               }
             }

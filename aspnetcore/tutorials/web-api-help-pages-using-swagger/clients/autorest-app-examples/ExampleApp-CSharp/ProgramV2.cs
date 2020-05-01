@@ -10,8 +10,8 @@ namespace ExampleApp
     {
         public static void SendAPIRequests(string[] args)
         {
-            IMoviesWatchedAPI api = new MoviesWatchedAPI();
-            api.BaseUri = new Uri("https://localhost:44380");
+            Uri baseUri = new Uri("https://localhost:44380");
+            IMoviesWatchedAPI api = new MoviesWatchedAPI(baseUri);
 
             Movie movie = new Movie("Finding Nemo", 4.7, null, "Found!");
 

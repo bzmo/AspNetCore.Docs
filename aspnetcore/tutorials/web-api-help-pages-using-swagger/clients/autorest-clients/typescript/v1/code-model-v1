@@ -34,12 +34,12 @@
       "$type": "PrimaryType",
       "format": "int64",
       "knownPrimaryType": "long",
-      "deprecated": false,
       "name": {
        "$id": "8",
        "fixed": false,
        "raw": "Long"
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -70,12 +70,12 @@
       "$id": "13",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
-      "deprecated": false,
       "name": {
        "$id": "14",
        "fixed": false,
        "raw": "String"
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -111,12 +111,12 @@
       "$type": "PrimaryType",
       "format": "double",
       "knownPrimaryType": "double",
-      "deprecated": false,
       "name": {
        "$id": "20",
        "fixed": false,
        "raw": "Double"
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -147,18 +147,17 @@
       "$id": "25",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
-      "deprecated": false,
       "name": {
        "$id": "26",
        "fixed": false,
        "raw": "String"
-      }
+      },
+      "deprecated": false
      }
     }
    ],
    "serializedName": "Movie",
    "containsConstantProperties": false,
-   "deprecated": false,
    "name": {
     "$id": "27",
     "fixed": false,
@@ -177,7 +176,8 @@
       "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/schemas/Movie"
      ]
     }
-   }
+   },
+   "deprecated": false
   },
   {
    "$id": "28",
@@ -211,19 +211,19 @@
        "$id": "34",
        "$type": "PrimaryType",
        "knownPrimaryType": "object",
-       "deprecated": false,
        "name": {
         "$id": "35",
         "fixed": false,
         "raw": "Object"
-       }
+       },
+       "deprecated": false
       },
       "supportsAdditionalProperties": true,
-      "deprecated": false,
       "name": {
        "$id": "36",
        "fixed": false
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -254,12 +254,12 @@
       "$id": "41",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
-      "deprecated": false,
       "name": {
        "$id": "42",
        "fixed": false,
        "raw": "String"
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -290,12 +290,12 @@
       "$id": "47",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
-      "deprecated": false,
       "name": {
        "$id": "48",
        "fixed": false,
        "raw": "String"
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -330,12 +330,12 @@
       "$type": "PrimaryType",
       "format": "int32",
       "knownPrimaryType": "int",
-      "deprecated": false,
       "name": {
        "$id": "54",
        "fixed": false,
        "raw": "Int"
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -366,12 +366,12 @@
       "$id": "59",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
-      "deprecated": false,
       "name": {
        "$id": "60",
        "fixed": false,
        "raw": "String"
-      }
+      },
+      "deprecated": false
      }
     },
     {
@@ -402,18 +402,17 @@
       "$id": "65",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
-      "deprecated": false,
       "name": {
        "$id": "66",
        "fixed": false,
        "raw": "String"
-      }
+      },
+      "deprecated": false
      }
     }
    ],
    "serializedName": "ProblemDetails",
    "containsConstantProperties": false,
-   "deprecated": false,
    "name": {
     "$id": "67",
     "fixed": false,
@@ -432,7 +431,8 @@
       "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/schemas/ProblemDetails"
      ]
     }
-   }
+   },
+   "deprecated": false
   }
  ],
  "name": "MoviesWatchedAPI",
@@ -457,7 +457,7 @@
    "documentation": {
     "$id": "70",
     "fixed": false,
-    "raw": "Movie ID"
+    "raw": "Movie Id"
    },
    "extensions": {
     "x-ms-metadata": {
@@ -487,12 +487,12 @@
     "$type": "PrimaryType",
     "format": "int64",
     "knownPrimaryType": "long",
-    "deprecated": false,
     "name": {
      "$id": "73",
      "fixed": false,
      "raw": "Long"
-    }
+    },
+    "deprecated": false
    }
   },
   {
@@ -540,12 +540,12 @@
     "$type": "PrimaryType",
     "format": "int64",
     "knownPrimaryType": "long",
-    "deprecated": false,
     "name": {
      "$id": "79",
      "fixed": false,
      "raw": "Long"
-    }
+    },
+    "deprecated": false
    }
   },
   {
@@ -593,12 +593,12 @@
     "$type": "PrimaryType",
     "format": "int64",
     "knownPrimaryType": "long",
-    "deprecated": false,
     "name": {
      "$id": "85",
      "fixed": false,
      "raw": "Long"
-    }
+    },
+    "deprecated": false
    }
   }
  ],
@@ -631,11 +631,11 @@
         "elementType": {
          "$ref": "2"
         },
-        "deprecated": false,
         "name": {
          "$id": "92",
          "fixed": false
-        }
+        },
+        "deprecated": false
        },
        "extensions": {
         "$id": "93",
@@ -761,7 +761,7 @@
       "BadRequest": {
        "$id": "105",
        "body": {
-        "$ref": "28"
+        "$ref": "2"
        },
        "extensions": {
         "$id": "106",
@@ -788,15 +788,7 @@
      "returnType": {
       "$id": "108",
       "body": {
-       "$id": "109",
-       "$type": "PrimaryType",
-       "knownPrimaryType": "object",
-       "deprecated": false,
-       "name": {
-        "$id": "110",
-        "fixed": false,
-        "raw": "Object"
-       }
+       "$ref": "2"
       },
       "isNullable": true
      },
@@ -813,24 +805,24 @@
      "hidden": false
     },
     {
-     "$id": "111",
+     "$id": "109",
      "parameters": [
       {
-       "$id": "112",
+       "$id": "110",
        "clientProperty": {
         "$ref": "68"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "113",
+        "$id": "111",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "114",
+        "$id": "112",
         "fixed": false,
-        "raw": "Movie ID"
+        "raw": "Movie Id"
        },
        "extensions": {
         "x-ms-metadata": {
@@ -850,32 +842,32 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "115",
+        "$id": "113",
         "fixed": false,
         "raw": "id"
        },
        "serializedName": "id",
        "modelType": {
-        "$id": "116",
+        "$id": "114",
         "$type": "PrimaryType",
         "format": "int64",
         "knownPrimaryType": "long",
-        "deprecated": false,
         "name": {
-         "$id": "117",
+         "$id": "115",
          "fixed": false,
          "raw": "Long"
-        }
+        },
+        "deprecated": false
        }
       }
      ],
      "name": {
-      "$id": "118",
+      "$id": "116",
       "fixed": false,
       "raw": "GetMovieById"
      },
      "group": {
-      "$id": "119",
+      "$id": "117",
       "fixed": false,
       "raw": ""
      },
@@ -885,12 +877,12 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "120",
+       "$id": "118",
        "body": {
         "$ref": "2"
        },
        "extensions": {
-        "$id": "121",
+        "$id": "119",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
@@ -907,12 +899,12 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "122",
+       "$id": "120",
        "body": {
-        "$ref": "28"
+        "$ref": "2"
        },
        "extensions": {
-        "$id": "123",
+        "$id": "121",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
@@ -930,21 +922,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "124",
+      "$id": "122",
       "isNullable": true
      },
      "returnType": {
-      "$id": "125",
+      "$id": "123",
       "body": {
-       "$id": "126",
-       "$type": "PrimaryType",
-       "knownPrimaryType": "object",
-       "deprecated": false,
-       "name": {
-        "$id": "127",
-        "fixed": false,
-        "raw": "Object"
-       }
+       "$ref": "2"
       },
       "isNullable": true
      },
@@ -961,19 +945,19 @@
      "hidden": false
     },
     {
-     "$id": "128",
+     "$id": "124",
      "parameters": [
       {
-       "$id": "129",
+       "$id": "125",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "130",
+        "$id": "126",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "131",
+        "$id": "127",
         "fixed": false
        },
        "extensions": {
@@ -993,7 +977,7 @@
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "132",
+        "$id": "128",
         "fixed": false,
         "raw": "body"
        },
@@ -1003,19 +987,19 @@
        }
       },
       {
-       "$id": "133",
+       "$id": "129",
        "clientProperty": {
         "$ref": "68"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "134",
+        "$id": "130",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "135",
+        "$id": "131",
         "fixed": false,
         "raw": "Movie ID"
        },
@@ -1037,32 +1021,32 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "136",
+        "$id": "132",
         "fixed": false,
         "raw": "id"
        },
        "serializedName": "id",
        "modelType": {
-        "$id": "137",
+        "$id": "133",
         "$type": "PrimaryType",
         "format": "int64",
         "knownPrimaryType": "long",
-        "deprecated": false,
         "name": {
-         "$id": "138",
+         "$id": "134",
          "fixed": false,
          "raw": "Long"
-        }
+        },
+        "deprecated": false
        }
       }
      ],
      "name": {
-      "$id": "139",
+      "$id": "135",
       "fixed": false,
       "raw": "UpdateMovieById"
      },
      "group": {
-      "$id": "140",
+      "$id": "136",
       "fixed": false,
       "raw": ""
      },
@@ -1072,9 +1056,9 @@
      "httpMethod": "put",
      "responses": {
       "NoContent": {
-       "$id": "141",
+       "$id": "137",
        "extensions": {
-        "$id": "142",
+        "$id": "138",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
@@ -1091,12 +1075,12 @@
        "isNullable": true
       },
       "BadRequest": {
-       "$id": "143",
+       "$id": "139",
        "body": {
         "$ref": "28"
        },
        "extensions": {
-        "$id": "144",
+        "$id": "140",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
@@ -1113,12 +1097,12 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "145",
+       "$id": "141",
        "body": {
         "$ref": "28"
        },
        "extensions": {
-        "$id": "146",
+        "$id": "142",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
@@ -1136,11 +1120,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "147",
+      "$id": "143",
       "isNullable": true
      },
      "returnType": {
-      "$id": "148",
+      "$id": "144",
       "body": {
        "$ref": "28"
       },
@@ -1159,22 +1143,22 @@
      "hidden": false
     },
     {
-     "$id": "149",
+     "$id": "145",
      "parameters": [
       {
-       "$id": "150",
+       "$id": "146",
        "clientProperty": {
         "$ref": "68"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "151",
+        "$id": "147",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "152",
+        "$id": "148",
         "fixed": false,
         "raw": "Movie ID"
        },
@@ -1196,32 +1180,32 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "153",
+        "$id": "149",
         "fixed": false,
         "raw": "id"
        },
        "serializedName": "id",
        "modelType": {
-        "$id": "154",
+        "$id": "150",
         "$type": "PrimaryType",
         "format": "int64",
         "knownPrimaryType": "long",
-        "deprecated": false,
         "name": {
-         "$id": "155",
+         "$id": "151",
          "fixed": false,
          "raw": "Long"
-        }
+        },
+        "deprecated": false
        }
       }
      ],
      "name": {
-      "$id": "156",
+      "$id": "152",
       "fixed": false,
       "raw": "DeleteMovieById"
      },
      "group": {
-      "$id": "157",
+      "$id": "153",
       "fixed": false,
       "raw": ""
      },
@@ -1231,9 +1215,9 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "158",
+       "$id": "154",
        "extensions": {
-        "$id": "159",
+        "$id": "155",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
@@ -1250,12 +1234,12 @@
        "isNullable": true
       },
       "NotFound": {
-       "$id": "160",
+       "$id": "156",
        "body": {
         "$ref": "28"
        },
        "extensions": {
-        "$id": "161",
+        "$id": "157",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
@@ -1273,11 +1257,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "162",
+      "$id": "158",
       "isNullable": true
      },
      "returnType": {
-      "$id": "163",
+      "$id": "159",
       "body": {
        "$ref": "28"
       },
@@ -1297,12 +1281,12 @@
     }
    ],
    "name": {
-    "$id": "164",
+    "$id": "160",
     "fixed": false,
     "raw": ""
    },
    "typeName": {
-    "$id": "165",
+    "$id": "161",
     "fixed": false
    },
    "nameForProperty": "MoviesWatchedAPI"

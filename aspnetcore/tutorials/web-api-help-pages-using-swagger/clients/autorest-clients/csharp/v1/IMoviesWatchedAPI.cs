@@ -64,7 +64,7 @@ namespace WatchedMovies.Rest.v1
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> CreateMovieWithHttpMessagesAsync(Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Movie>> CreateMovieWithHttpMessagesAsync(Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a specific movie by its ID.
@@ -73,7 +73,7 @@ namespace WatchedMovies.Rest.v1
         /// Fetch a movie watched during COVID-19 shelter-in-place.
         /// </remarks>
         /// <param name='id'>
-        /// Movie ID
+        /// Movie Id
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -81,7 +81,7 @@ namespace WatchedMovies.Rest.v1
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> GetMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Movie>> GetMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Updates an existing Movie.

@@ -15,8 +15,8 @@ foreach ($version in $VERSIONS) {
     # Fetch JSON
     iwr -uri $src -o $swagger_loc
 
-    $ts_dst = "./clients/autorest-clients/typescript/v{0}" -f $version
     $csharp_dst = "./clients/autorest-clients/csharp/v{0}" -f $version
+    $ts_dst = "./clients/autorest-clients/typescript/v{0}" -f $version
 
     # Generate clients
     .\node_modules\.bin\autorest-beta --v3 --csharp --typescript --input-file=$swagger_loc --namespace="WatchedMovies.Rest.v"$version `

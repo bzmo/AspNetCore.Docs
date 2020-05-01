@@ -304,7 +304,7 @@ namespace WatchedMovies.Rest.v1
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> CreateMovieWithHttpMessagesAsync(Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Movie>> CreateMovieWithHttpMessagesAsync(Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (body != null)
             {
@@ -389,7 +389,7 @@ namespace WatchedMovies.Rest.v1
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<object>();
+            var _result = new HttpOperationResponse<Movie>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -416,7 +416,7 @@ namespace WatchedMovies.Rest.v1
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ProblemDetails>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Movie>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -442,7 +442,7 @@ namespace WatchedMovies.Rest.v1
         /// Fetch a movie watched during COVID-19 shelter-in-place.
         /// </remarks>
         /// <param name='id'>
-        /// Movie ID
+        /// Movie Id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -459,7 +459,7 @@ namespace WatchedMovies.Rest.v1
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> GetMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Movie>> GetMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -535,7 +535,7 @@ namespace WatchedMovies.Rest.v1
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<object>();
+            var _result = new HttpOperationResponse<Movie>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -562,7 +562,7 @@ namespace WatchedMovies.Rest.v1
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<ProblemDetails>(_responseContent, DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Movie>(_responseContent, DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

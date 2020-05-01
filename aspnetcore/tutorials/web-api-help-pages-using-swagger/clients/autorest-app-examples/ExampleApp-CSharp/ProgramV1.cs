@@ -10,8 +10,8 @@ namespace ExampleApp
     {
         public static void SendAPIRequests(string[] args)
         {
-            IMoviesWatchedAPI api = new MoviesWatchedAPI();
-            api.BaseUri = new Uri("https://localhost:44380");
+            Uri baseUri = new Uri("https://localhost:44380");
+            IMoviesWatchedAPI api = new MoviesWatchedAPI(baseUri);
 
             Movie movie = new Movie("Finding Nemo", 4.7, null, "Found!");
 
@@ -27,7 +27,7 @@ namespace ExampleApp
                 Console.WriteLine("---");
 
                 // Create
-                movie = (Movie)api.CreateMovie(movie);
+                movie = api.CreateMovie(movie);
                 PrintMovieInfo(movie);
 
                 long id = movie.Id ?? 4;
@@ -38,7 +38,7 @@ namespace ExampleApp
                 api.UpdateMovieById(id, movie);
 
                 // Get
-                movie = (Movie)api.GetMovieById(id);
+                movie = api.GetMovieById(id);
                 PrintMovieInfo(movie);
 
                 // Delete
