@@ -99,13 +99,13 @@ namespace WatchedMovies.Rest.v2
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
-            /// Movie ID
+            /// Movie Id
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static ProblemDetails UpdateMovieRating(this IMoviesWatchedAPI operations, long id, double? body = default(double?))
+            public static void UpdateMovieRating(this IMoviesWatchedAPI operations, long id, double? body = default(double?))
             {
-                return operations.UpdateMovieRatingAsync(id, body).GetAwaiter().GetResult();
+                operations.UpdateMovieRatingAsync(id, body).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -118,19 +118,16 @@ namespace WatchedMovies.Rest.v2
             /// The operations group for this extension method.
             /// </param>
             /// <param name='id'>
-            /// Movie ID
+            /// Movie Id
             /// </param>
             /// <param name='body'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ProblemDetails> UpdateMovieRatingAsync(this IMoviesWatchedAPI operations, long id, double? body = default(double?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateMovieRatingAsync(this IMoviesWatchedAPI operations, long id, double? body = default(double?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UpdateMovieRatingWithHttpMessagesAsync(id, body, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                (await operations.UpdateMovieRatingWithHttpMessagesAsync(id, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -187,9 +184,9 @@ namespace WatchedMovies.Rest.v2
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static ProblemDetails UpdateMovieById(this IMoviesWatchedAPI operations, long id, Movie body = default(Movie))
+            public static void UpdateMovieById(this IMoviesWatchedAPI operations, long id, Movie body = default(Movie))
             {
-                return operations.UpdateMovieByIdAsync(id, body).GetAwaiter().GetResult();
+                operations.UpdateMovieByIdAsync(id, body).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -209,12 +206,9 @@ namespace WatchedMovies.Rest.v2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ProblemDetails> UpdateMovieByIdAsync(this IMoviesWatchedAPI operations, long id, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateMovieByIdAsync(this IMoviesWatchedAPI operations, long id, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.UpdateMovieByIdWithHttpMessagesAsync(id, body, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                (await operations.UpdateMovieByIdWithHttpMessagesAsync(id, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -229,9 +223,9 @@ namespace WatchedMovies.Rest.v2
             /// <param name='id'>
             /// Movie ID
             /// </param>
-            public static ProblemDetails DeleteMovieById(this IMoviesWatchedAPI operations, long id)
+            public static void DeleteMovieById(this IMoviesWatchedAPI operations, long id)
             {
-                return operations.DeleteMovieByIdAsync(id).GetAwaiter().GetResult();
+                operations.DeleteMovieByIdAsync(id).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -249,12 +243,9 @@ namespace WatchedMovies.Rest.v2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ProblemDetails> DeleteMovieByIdAsync(this IMoviesWatchedAPI operations, long id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteMovieByIdAsync(this IMoviesWatchedAPI operations, long id, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteMovieByIdWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                (await operations.DeleteMovieByIdWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

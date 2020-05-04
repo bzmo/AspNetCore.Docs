@@ -17,21 +17,6 @@ export interface Movie {
 }
 
 /**
- * An interface representing ProblemDetails.
- */
-export interface ProblemDetails {
-  type?: string;
-  title?: string;
-  status?: number;
-  detail?: string;
-  instance?: string;
-  /**
-   * Describes unknown properties. The value of an unknown property can be of "any" type.
-   */
-  [property: string]: any;
-}
-
-/**
  * An interface representing MoviesWatchedAPIOptions.
  */
 export interface MoviesWatchedAPIOptions extends ServiceClientOptions {
@@ -109,45 +94,5 @@ export type GetMovieByIdResponse = Movie & {
        * The response body as parsed JSON or XML
        */
       parsedBody: Movie;
-    };
-};
-
-/**
- * Contains response data for the updateMovieById operation.
- */
-export type UpdateMovieByIdResponse = ProblemDetails & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: ProblemDetails;
-    };
-};
-
-/**
- * Contains response data for the deleteMovieById operation.
- */
-export type DeleteMovieByIdResponse = ProblemDetails & {
-  /**
-   * The underlying HTTP response.
-   */
-  _response: msRest.HttpResponse & {
-      /**
-       * The response body as text (string format)
-       */
-      bodyAsText: string;
-
-      /**
-       * The response body as parsed JSON or XML
-       */
-      parsedBody: ProblemDetails;
     };
 };

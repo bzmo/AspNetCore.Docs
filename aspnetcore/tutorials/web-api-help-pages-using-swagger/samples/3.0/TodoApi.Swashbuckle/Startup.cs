@@ -2,15 +2,27 @@
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using MoviesWatched.Models;
 using MoviesWatched.SwaggerOptions;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System;
+using System.IO;
+using System.Reflection;
 
 namespace MoviesWatched
 {
     public class Startup
     {
+
+        private IHostEnvironment currentEnvironment;
+
+        public Startup(IHostEnvironment environment)
+        {
+            currentEnvironment = environment;
+        }
+
         #region snippet_ConfigureServices
         public void ConfigureServices(IServiceCollection services)
         {
@@ -37,7 +49,13 @@ namespace MoviesWatched
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
         }
         #endregion
 

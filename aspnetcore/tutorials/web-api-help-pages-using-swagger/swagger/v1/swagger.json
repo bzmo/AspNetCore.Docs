@@ -12,15 +12,15 @@
       "name": "Use under LICX",
       "url": "https://example.com/license"
     },
-    "version": "2.0"
+    "version": "1.0"
   },
   "paths": {
-    "/api/v2/MoviesWatched": {
+    "/api/v1/MoviesWatched": {
       "get": {
         "tags": [
           "MoviesWatched"
         ],
-        "summary": "Gets all watched movies sorted alphabetically.",
+        "summary": "Gets all watched movies.",
         "description": "Fetch all movies watched during COVID-19 shelter-in-place.",
         "operationId": "GetAllMovies",
         "responses": {
@@ -75,78 +75,11 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "The movie data is invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              }
-            }
           }
         }
       }
     },
-    "/api/v2/MoviesWatched/{id}": {
-      "patch": {
-        "tags": [
-          "MoviesWatched"
-        ],
-        "summary": "Updates a rating of a specific Movie.",
-        "description": "Updates movie rating.",
-        "operationId": "UpdateMovieRating",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Movie ID",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "number",
-                "format": "double"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "number",
-                "format": "double"
-              }
-            }
-          }
-        },
-        "responses": {
-          "204": {
-            "description": "The movie rating was updated."
-          },
-          "404": {
-            "description": "The movie was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/v1/MoviesWatched/{id}": {
       "get": {
         "tags": [
           "MoviesWatched"
@@ -169,16 +102,6 @@
         "responses": {
           "200": {
             "description": "The movie was found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Movie"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The movie was not found.",
             "content": {
               "application/json": {
                 "schema": {
@@ -230,26 +153,6 @@
         "responses": {
           "204": {
             "description": "The movie was updated."
-          },
-          "400": {
-            "description": "The movie data is invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The movie was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
           }
         }
       },
@@ -275,16 +178,6 @@
         "responses": {
           "204": {
             "description": "The movie was deleted."
-          },
-          "404": {
-            "description": "The movie was not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
           }
         }
       }
@@ -324,36 +217,6 @@
           "Name": "Sonic the Hedgehog",
           "Rating": 4.3,
           "Comment": "Gotta go fast!"
-        }
-      },
-      "ProblemDetails": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": {
-          "type": "object",
-          "additionalProperties": false
         }
       }
     }

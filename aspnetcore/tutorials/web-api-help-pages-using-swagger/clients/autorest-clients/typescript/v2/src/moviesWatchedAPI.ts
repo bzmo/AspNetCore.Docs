@@ -72,30 +72,30 @@ class MoviesWatchedAPI extends MoviesWatchedAPIContext {
   /**
    * Updates movie rating.
    * @summary Updates a rating of a specific Movie.
-   * @param id Movie ID
+   * @param id Movie Id
    * @param [options] The optional parameters
-   * @returns Promise<Models.UpdateMovieRatingResponse>
+   * @returns Promise<msRest.RestResponse>
    */
-  updateMovieRating(id: number, options?: Models.MoviesWatchedAPIUpdateMovieRatingOptionalParams): Promise<Models.UpdateMovieRatingResponse>;
+  updateMovieRating(id: number, options?: Models.MoviesWatchedAPIUpdateMovieRatingOptionalParams): Promise<msRest.RestResponse>;
   /**
-   * @param id Movie ID
+   * @param id Movie Id
    * @param callback The callback
    */
-  updateMovieRating(id: number, callback: msRest.ServiceCallback<Models.ProblemDetails>): void;
+  updateMovieRating(id: number, callback: msRest.ServiceCallback<void>): void;
   /**
-   * @param id Movie ID
+   * @param id Movie Id
    * @param options The optional parameters
    * @param callback The callback
    */
-  updateMovieRating(id: number, options: Models.MoviesWatchedAPIUpdateMovieRatingOptionalParams, callback: msRest.ServiceCallback<Models.ProblemDetails>): void;
-  updateMovieRating(id: number, options?: Models.MoviesWatchedAPIUpdateMovieRatingOptionalParams | msRest.ServiceCallback<Models.ProblemDetails>, callback?: msRest.ServiceCallback<Models.ProblemDetails>): Promise<Models.UpdateMovieRatingResponse> {
+  updateMovieRating(id: number, options: Models.MoviesWatchedAPIUpdateMovieRatingOptionalParams, callback: msRest.ServiceCallback<void>): void;
+  updateMovieRating(id: number, options?: Models.MoviesWatchedAPIUpdateMovieRatingOptionalParams | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.sendOperationRequest(
       {
         id,
         options
       },
       updateMovieRatingOperationSpec,
-      callback) as Promise<Models.UpdateMovieRatingResponse>;
+      callback);
   }
 
   /**
@@ -132,28 +132,28 @@ class MoviesWatchedAPI extends MoviesWatchedAPIContext {
    * @summary Updates an existing Movie.
    * @param id Movie ID
    * @param [options] The optional parameters
-   * @returns Promise<Models.UpdateMovieByIdResponse>
+   * @returns Promise<msRest.RestResponse>
    */
-  updateMovieById(id: number, options?: Models.MoviesWatchedAPIUpdateMovieByIdOptionalParams): Promise<Models.UpdateMovieByIdResponse>;
+  updateMovieById(id: number, options?: Models.MoviesWatchedAPIUpdateMovieByIdOptionalParams): Promise<msRest.RestResponse>;
   /**
    * @param id Movie ID
    * @param callback The callback
    */
-  updateMovieById(id: number, callback: msRest.ServiceCallback<Models.ProblemDetails>): void;
+  updateMovieById(id: number, callback: msRest.ServiceCallback<void>): void;
   /**
    * @param id Movie ID
    * @param options The optional parameters
    * @param callback The callback
    */
-  updateMovieById(id: number, options: Models.MoviesWatchedAPIUpdateMovieByIdOptionalParams, callback: msRest.ServiceCallback<Models.ProblemDetails>): void;
-  updateMovieById(id: number, options?: Models.MoviesWatchedAPIUpdateMovieByIdOptionalParams | msRest.ServiceCallback<Models.ProblemDetails>, callback?: msRest.ServiceCallback<Models.ProblemDetails>): Promise<Models.UpdateMovieByIdResponse> {
+  updateMovieById(id: number, options: Models.MoviesWatchedAPIUpdateMovieByIdOptionalParams, callback: msRest.ServiceCallback<void>): void;
+  updateMovieById(id: number, options?: Models.MoviesWatchedAPIUpdateMovieByIdOptionalParams | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.sendOperationRequest(
       {
         id,
         options
       },
       updateMovieByIdOperationSpec,
-      callback) as Promise<Models.UpdateMovieByIdResponse>;
+      callback);
   }
 
   /**
@@ -161,28 +161,28 @@ class MoviesWatchedAPI extends MoviesWatchedAPIContext {
    * @summary Deletes a specific Movie.
    * @param id Movie ID
    * @param [options] The optional parameters
-   * @returns Promise<Models.DeleteMovieByIdResponse>
+   * @returns Promise<msRest.RestResponse>
    */
-  deleteMovieById(id: number, options?: msRest.RequestOptionsBase): Promise<Models.DeleteMovieByIdResponse>;
+  deleteMovieById(id: number, options?: msRest.RequestOptionsBase): Promise<msRest.RestResponse>;
   /**
    * @param id Movie ID
    * @param callback The callback
    */
-  deleteMovieById(id: number, callback: msRest.ServiceCallback<Models.ProblemDetails>): void;
+  deleteMovieById(id: number, callback: msRest.ServiceCallback<void>): void;
   /**
    * @param id Movie ID
    * @param options The optional parameters
    * @param callback The callback
    */
-  deleteMovieById(id: number, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<Models.ProblemDetails>): void;
-  deleteMovieById(id: number, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<Models.ProblemDetails>, callback?: msRest.ServiceCallback<Models.ProblemDetails>): Promise<Models.DeleteMovieByIdResponse> {
+  deleteMovieById(id: number, options: msRest.RequestOptionsBase, callback: msRest.ServiceCallback<void>): void;
+  deleteMovieById(id: number, options?: msRest.RequestOptionsBase | msRest.ServiceCallback<void>, callback?: msRest.ServiceCallback<void>): Promise<msRest.RestResponse> {
     return this.sendOperationRequest(
       {
         id,
         options
       },
       deleteMovieByIdOperationSpec,
-      callback) as Promise<Models.DeleteMovieByIdResponse>;
+      callback);
   }
 }
 
@@ -222,10 +222,7 @@ const createMovieOperationSpec: msRest.OperationSpec = {
     mapper: Mappers.Movie
   },
   responses: {
-    201: {
-      bodyMapper: Mappers.Movie
-    },
-    400: {
+    200: {
       bodyMapper: Mappers.Movie
     },
     default: {}
@@ -253,9 +250,6 @@ const updateMovieRatingOperationSpec: msRest.OperationSpec = {
   },
   responses: {
     204: {},
-    404: {
-      bodyMapper: Mappers.ProblemDetails
-    },
     default: {}
   },
   serializer
@@ -271,9 +265,7 @@ const getMovieByIdOperationSpec: msRest.OperationSpec = {
     200: {
       bodyMapper: Mappers.Movie
     },
-    404: {
-      bodyMapper: Mappers.Movie
-    },
+    404: {},
     default: {}
   },
   serializer
@@ -294,12 +286,6 @@ const updateMovieByIdOperationSpec: msRest.OperationSpec = {
   },
   responses: {
     204: {},
-    400: {
-      bodyMapper: Mappers.ProblemDetails
-    },
-    404: {
-      bodyMapper: Mappers.ProblemDetails
-    },
     default: {}
   },
   serializer
@@ -313,9 +299,6 @@ const deleteMovieByIdOperationSpec: msRest.OperationSpec = {
   ],
   responses: {
     204: {},
-    404: {
-      bodyMapper: Mappers.ProblemDetails
-    },
     default: {}
   },
   serializer

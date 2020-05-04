@@ -43,49 +43,4 @@ exports.Movie = {
         }
     }
 };
-exports.ProblemDetails = {
-    serializedName: "ProblemDetails",
-    type: {
-        name: "Composite",
-        className: "ProblemDetails",
-        modelProperties: {
-            type: {
-                serializedName: "type",
-                type: {
-                    name: "String"
-                }
-            },
-            title: {
-                serializedName: "title",
-                type: {
-                    name: "String"
-                }
-            },
-            status: {
-                nullable: true,
-                serializedName: "status",
-                type: {
-                    name: "Number"
-                }
-            },
-            detail: {
-                serializedName: "detail",
-                type: {
-                    name: "String"
-                }
-            },
-            instance: {
-                serializedName: "instance",
-                type: {
-                    name: "String"
-                }
-            }
-        },
-        additionalProperties: {
-            type: {
-                name: "Object"
-            }
-        }
-    }
-};
 //# sourceMappingURL=mappers.js.map

@@ -89,9 +89,6 @@ const createMovieOperationSpec = {
         201: {
             bodyMapper: Mappers.Movie
         },
-        400: {
-            bodyMapper: Mappers.Movie
-        },
         default: {}
     },
     serializer
@@ -104,9 +101,6 @@ const getMovieByIdOperationSpec = {
     ],
     responses: {
         200: {
-            bodyMapper: Mappers.Movie
-        },
-        404: {
             bodyMapper: Mappers.Movie
         },
         default: {}
@@ -128,12 +122,6 @@ const updateMovieByIdOperationSpec = {
     },
     responses: {
         204: {},
-        400: {
-            bodyMapper: Mappers.ProblemDetails
-        },
-        404: {
-            bodyMapper: Mappers.ProblemDetails
-        },
         default: {}
     },
     serializer
@@ -146,9 +134,6 @@ const deleteMovieByIdOperationSpec = {
     ],
     responses: {
         204: {},
-        404: {
-            bodyMapper: Mappers.ProblemDetails
-        },
         default: {}
     },
     serializer

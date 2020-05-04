@@ -73,7 +73,7 @@ namespace WatchedMovies.Rest.v2
         /// Updates movie rating.
         /// </remarks>
         /// <param name='id'>
-        /// Movie ID
+        /// Movie Id
         /// </param>
         /// <param name='body'>
         /// </param>
@@ -83,7 +83,7 @@ namespace WatchedMovies.Rest.v2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ProblemDetails>> UpdateMovieRatingWithHttpMessagesAsync(long id, double? body = default(double?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateMovieRatingWithHttpMessagesAsync(long id, double? body = default(double?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a specific movie by its ID.
@@ -119,7 +119,7 @@ namespace WatchedMovies.Rest.v2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ProblemDetails>> UpdateMovieByIdWithHttpMessagesAsync(long id, Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateMovieByIdWithHttpMessagesAsync(long id, Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deletes a specific Movie.
@@ -136,7 +136,7 @@ namespace WatchedMovies.Rest.v2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ProblemDetails>> DeleteMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

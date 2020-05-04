@@ -22,45 +22,62 @@ class appV1 {
                 rating: 4.7,
                 comment: "Found!"
             };
-            // Get All
-            var getAllMoviesResponse = yield api.getAllMovies();
-            getAllMoviesResponse.forEach(movie => {
-                this.PrintMovieInfo(movie);
-            });
-            console.log("-----------");
-            // Create
-            var createMovieOptions = {
-                body: movie
-            };
-            var createMovieResponse = yield api.createMovie(createMovieOptions);
-            movie = createMovieResponse._response.parsedBody;
-            this.PrintMovieInfo(movie);
-            console.log("-----------");
-            var id = movie.id;
-            // Update
-            movie.rating = 4.7;
-            movie.comment = "Found him!";
-            var updateMovieOptions = {
-                body: movie
-            };
-            yield api.updateMovieById(id, updateMovieOptions);
-            id = 99;
-            // Get
-            var getMovieByIdResponse = yield api.getMovieById(id);
-            movie = getMovieByIdResponse._response.parsedBody;
-            this.PrintMovieInfo(movie);
-            // Delete
-            yield api.deleteMovieById(id);
-            console.log("-----------");
-            getAllMoviesResponse = yield api.getAllMovies();
-            getAllMoviesResponse.forEach(movie => {
-                this.PrintMovieInfo(movie);
-            });
+            try {
+                // Get All
+                var getAllMoviesResponse = yield api.getAllMovies();
+                getAllMoviesResponse.forEach((movie) => {
+                    this.PrintMovieInfo(movie);
+                });
+                console.log("-----------");
+                // Create
+                var createMovieOptions = {
+                    body: movie
+                };
+                var createMovieResponse = yield api.createMovie(createMovieOptions);
+                this.ProcessResponse(createMovieResponse._response.parsedBody, (m) => {
+                    movie = m;
+                });
+                var id = movie.id;
+                console.log("-----------");
+                // Update
+                movie.rating = 4.7;
+                movie.comment = "Found him!";
+                var updateMovieOptions = {
+                    body: movie
+                };
+                yield api.updateMovieById(id, updateMovieOptions);
+                // Get
+                var getMovieByIdResponse = yield api.getMovieById(id);
+                this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
+                // Delete
+                yield api.deleteMovieById(id);
+                console.log("-----------");
+                getAllMoviesResponse = yield api.getAllMovies();
+                getAllMoviesResponse.forEach(movie => {
+                    this.PrintMovieInfo(movie);
+                });
+            }
+            catch (error) {
+                console.log(error.statusCode);
+                console.log(error.response);
+                console.log(error.stack);
+            }
         });
     }
     static PrintMovieInfo(movie) {
         var movieInfo = `${movie.id} ${movie.name} ${movie.rating} ${movie.comment}`;
         console.log(movieInfo);
+    }
+    static ProcessResponse(response, fn) {
+        if (response == null) {
+            return;
+        }
+        else {
+            this.PrintMovieInfo(response);
+            if (fn) {
+                fn(response);
+            }
+        }
     }
 }
 exports.appV1 = appV1;

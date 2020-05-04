@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Rest;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using WatchedMovies.Rest.v2;
 using WatchedMovies.Rest.v2.Models;
 
@@ -28,7 +30,7 @@ namespace ExampleApp
                 Console.WriteLine("---");
 
                 // Create
-                movie = (Movie)api.CreateMovie(movie);
+                movie = api.CreateMovie(movie);
                 PrintMovieInfo(movie);
 
                 Console.WriteLine("---");
@@ -45,7 +47,7 @@ namespace ExampleApp
                 Console.WriteLine("Patch Request made!");
 
                 // Get
-                movie = (Movie)api.GetMovieById(id);
+                movie = api.GetMovieById(id);
                 PrintMovieInfo(movie);
 
                 // Delete
@@ -59,7 +61,8 @@ namespace ExampleApp
                 {
                     PrintMovieInfo(m);
                 }
-            } catch(Exception ex)
+            }
+            catch (HttpOperationException ex)
             {
                 Debug.WriteLine(ex.GetType());
                 Debug.WriteLine(ex.Message);
@@ -67,7 +70,7 @@ namespace ExampleApp
             }
         }
 
-        static void PrintMovieInfo(Movie movie)
+        private static void PrintMovieInfo(Movie movie)
         {
             string movieInfo = string.Format("{0} {1} {2} {3}", movie.Id, movie.Name, movie.Rating, movie.Comment);
             Console.WriteLine(movieInfo);

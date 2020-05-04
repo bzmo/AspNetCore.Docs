@@ -5,6 +5,8 @@ using System.Linq;
 using MoviesWatched.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MoviesWatched.Controllers.v1
 {
@@ -42,14 +44,15 @@ namespace MoviesWatched.Controllers.v1
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
             OperationId = nameof(GetAllMovies)
         )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IList<Movie>))]
-        public virtual ActionResult<IList<Movie>> GetAllMovies()
+        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IEnumerable<Movie>))]
+        public async virtual Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
         {
-            return _context.Movies.ToList();
+            return await _context.Movies.ToListAsync();
         }
         #endregion
 
         #region snippet_GetById
+        // <response code="404">The movie was not found.</response>
         [HttpGet("{id:long}")]
         [SwaggerOperation(
             Summary = "Gets a specific movie by its ID.",
@@ -57,20 +60,20 @@ namespace MoviesWatched.Controllers.v1
             OperationId = nameof(GetMovieById)
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "The movie was found.", Type = typeof(Movie))]
-        [SwaggerResponse(StatusCodes.Status404NotFound, "The movie was not found.", Type = typeof(Movie))]
-        public virtual ActionResult<Movie> GetMovieById([FromRoute, SwaggerParameter("Movie Id", Required = true)] long id)
+        public async virtual Task<ActionResult<Movie>> GetMovieById([FromRoute, SwaggerParameter("Movie Id", Required = true)] long id)
         {
-            Movie movie = _context.Movies.Find(id);
+            Movie movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
-                return NotFound(null);
+                return NotFound();
             }
 
             return Ok(movie);
         }
         #endregion
-        
-        #region snippet_Create        
+
+        #region snippet_Create 
+        // <response code="400">The movie data is invalid.</response>
         [HttpPost]
         [SwaggerOperation(
             Summary = "Creates a Movie.",
@@ -78,18 +81,17 @@ namespace MoviesWatched.Controllers.v1
             OperationId = nameof(CreateMovie)
         )]
         [SwaggerResponse(StatusCodes.Status201Created, "The movie was created.", Type = typeof(Movie))]
-        [SwaggerResponse(StatusCodes.Status400BadRequest, "The movie data is invalid.", Type = typeof(Movie))]
-        public virtual ActionResult<Movie> CreateMovie(
+        public async virtual Task<ActionResult<Movie>> CreateMovie(
             [FromBody, SwaggerParameter("Movie info", Required = true)] Movie movie, ApiVersion version)
         {
             try
             {
-                _context.Movies.Add(movie);
-                _context.SaveChanges();
+                await _context.Movies.AddAsync(movie);
+                await _context.SaveChangesAsync();
             }
             catch (Exception)
             {
-                return BadRequest(null);
+                return BadRequest();
             }
 
             return CreatedAtAction(nameof(GetMovieById), new { id = movie.Id, version = version.ToString() }, movie);
@@ -97,6 +99,8 @@ namespace MoviesWatched.Controllers.v1
         #endregion
 
         #region snippet_Update
+        // <response code="400">The movie data is invalid.</response>
+        // <response code="404">The movie was not found.</response>
         [HttpPut("{id:long}")]
         [SwaggerOperation(
             Summary = "Updates an existing Movie.",
@@ -104,9 +108,7 @@ namespace MoviesWatched.Controllers.v1
             OperationId = nameof(UpdateMovieById)
         )]
         [SwaggerResponse(StatusCodes.Status204NoContent, "The movie was updated.")]
-        [SwaggerResponse(StatusCodes.Status400BadRequest, "The movie data is invalid.")]
-        [SwaggerResponse(StatusCodes.Status404NotFound, "The movie was not found.")]
-        public virtual IActionResult UpdateMovieById(
+        public async virtual Task<IActionResult> UpdateMovieById(
             [FromRoute, SwaggerParameter("Movie ID", Required = true)] long id,
             [FromBody, SwaggerParameter("Movie info", Required = true)] Movie movie
         )
@@ -116,7 +118,7 @@ namespace MoviesWatched.Controllers.v1
                 return BadRequest();
             }
 
-            var movieToUpdate = _context.Movies.Find(id);
+            var movieToUpdate = await _context.Movies.FindAsync(id);
             if (movieToUpdate == null)
             {
                 return NotFound();
@@ -127,13 +129,14 @@ namespace MoviesWatched.Controllers.v1
             movieToUpdate.Name = movie.Name;
 
             _context.Movies.Update(movieToUpdate);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }
         #endregion
 
         #region snippet_Delete
+        // <response code="404">The movie was not found.</response>
         [HttpDelete("{id:long}")]
         [SwaggerOperation(
             Summary = "Deletes a specific Movie.",
@@ -141,17 +144,16 @@ namespace MoviesWatched.Controllers.v1
             OperationId = nameof(DeleteMovieById)
         )]
         [SwaggerResponse(StatusCodes.Status204NoContent, "The movie was deleted.")]
-        [SwaggerResponse(StatusCodes.Status404NotFound, "The movie was not found.")]
-        public virtual IActionResult DeleteMovieById([FromRoute, SwaggerParameter("Movie ID", Required = true)] long id)
+        public async virtual Task<IActionResult> DeleteMovieById([FromRoute, SwaggerParameter("Movie ID", Required = true)] long id)
         {
-            var movie = _context.Movies.Find(id);
+            var movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
                 return NotFound();
             }
 
             _context.Movies.Remove(movie);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }

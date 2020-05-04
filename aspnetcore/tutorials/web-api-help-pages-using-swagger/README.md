@@ -17,9 +17,10 @@ This document describes how to generate Client SDKs, modelled after the Swagger.
 - Swagger.json: https://localhost:44380/swagger/v1/swagger.json
 - Swagger.json: https://localhost:44380/swagger/v2/swagger.json
 	
-### 1. Azure Autorest (Selected for Development)
+### 1. Azure Autorest (__Selected for Development__)
 ```
-./genAzureAutoRestClients.ps1
+./init.ps1
+./genAzureAutoRestClientsV2.ps1
 ```
 
 The generated clients can be found in [__./clients/autorest-clients/__](https://github.com/bzmo/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/clients/autorest-clients). See example apps in [__./clients/autorest-app-examples__](https://github.com/bzmo/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/clients/autorest-app-examples).

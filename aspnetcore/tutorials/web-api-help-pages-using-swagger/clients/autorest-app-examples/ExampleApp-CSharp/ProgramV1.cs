@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Rest;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using WatchedMovies.Rest.v1;
@@ -52,7 +53,7 @@ namespace ExampleApp
                 {
                     PrintMovieInfo(m);
                 }
-            } catch(Exception ex)
+            } catch(HttpOperationException ex)
             {
                 Debug.WriteLine(ex.GetType());
                 Debug.WriteLine(ex.Message);

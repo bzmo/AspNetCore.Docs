@@ -2,9 +2,11 @@
 npm install
 
 $VERSIONS = @("1", "2")
+$NAMESPACE = "WatchedMovies.Rest.v"
 
 # Fetch the swagger.json file
 foreach ($version in $VERSIONS) {
+
     $src = "https://localhost:44380/swagger/v{0}/swagger.json" -f $version
     $dst = "./swaggerSpec/v{0}/" -f $version
     $swagger_loc = "$dst{0}" -f "swagger.json"
@@ -19,6 +21,7 @@ foreach ($version in $VERSIONS) {
     $ts_dst = "./clients/autorest-clients/typescript/v{0}" -f $version
 
     # Generate clients
-    .\node_modules\.bin\autorest-beta --v3 --csharp --typescript --input-file=$swagger_loc --namespace="WatchedMovies.Rest.v"$version `
-        --csharp.output-folder=$csharp_dst --typescript.output-folder=$ts_dst
+    .\node_modules\.bin\autorest-beta --v3 --typescript --input-file=$swagger_loc --namespace=$NAMESPACE$version --output-folder=$ts_dst
+
+    .\node_modules\.bin\autorest-beta --v3 --csharp --input-file=$swagger_loc --namespace=$NAMESPACE$version --output-folder=$csharp_dst
 }

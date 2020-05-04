@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MoviesWatched.Models;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MoviesWatched.Controllers.v2
 {
@@ -27,14 +29,17 @@ namespace MoviesWatched.Controllers.v2
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
             OperationId = nameof(GetAllMovies)
         )]
-        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IList<Movie>))]
-        public override ActionResult<IList<Movie>> GetAllMovies()
+        [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IEnumerable<Movie>))]
+        public async override Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
         {
-            return _context.Movies.ToList().OrderByDescending(x => x.Name).ToList();
+            IList<Movie> movies = await _context.Movies.ToListAsync();
+
+            return movies.OrderByDescending(x => x.Name).ToList();
         }
         #endregion
 
         #region snippet_Patch
+        // <response code="404">The movie was not found.</response>
         [HttpPatch("{id:long}")]
         [SwaggerOperation(
             Summary = "Updates a rating of a specific Movie.",
@@ -42,13 +47,12 @@ namespace MoviesWatched.Controllers.v2
             OperationId = nameof(UpdateMovieRating)
         )]
         [SwaggerResponse(StatusCodes.Status204NoContent, "The movie rating was updated.")]
-        [SwaggerResponse(StatusCodes.Status404NotFound, "The movie was not found.")]
-        public virtual IActionResult UpdateMovieRating(
-            [FromRoute, SwaggerParameter("Movie ID", Required = true)]long id,
+        public async virtual Task<IActionResult> UpdateMovieRating(
+            [FromRoute, SwaggerParameter("Movie Id", Required = true)]long id,
             [FromBody, SwaggerParameter("Movie Rating", Required = true)]double rating
         )
         {
-            Movie movie = _context.Movies.Find(id);
+            Movie movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
                 return NotFound();
@@ -56,7 +60,7 @@ namespace MoviesWatched.Controllers.v2
 
             movie.Rating = rating;
             _context.Movies.Update(movie);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }

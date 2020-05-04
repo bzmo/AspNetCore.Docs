@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using MoviesWatched;
 
-namespace TodoApi
+namespace MoviesWatched
 {
     public class Program
     {

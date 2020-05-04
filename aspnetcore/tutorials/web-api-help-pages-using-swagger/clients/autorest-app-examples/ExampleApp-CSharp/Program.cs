@@ -11,6 +11,6 @@ namespace ExampleApp
             Console.WriteLine("<---------------------------->");
 
             ProgramV2.SendAPIRequests(args);
-        }   
+        }
     }
 }

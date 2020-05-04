@@ -34,12 +34,12 @@
       "$type": "PrimaryType",
       "format": "int64",
       "knownPrimaryType": "long",
+      "deprecated": false,
       "name": {
        "$id": "8",
        "fixed": false,
        "raw": "Long"
-      },
-      "deprecated": false
+      }
      }
     },
     {
@@ -70,12 +70,12 @@
       "$id": "13",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
+      "deprecated": false,
       "name": {
        "$id": "14",
        "fixed": false,
        "raw": "String"
-      },
-      "deprecated": false
+      }
      }
     },
     {
@@ -111,12 +111,12 @@
       "$type": "PrimaryType",
       "format": "double",
       "knownPrimaryType": "double",
+      "deprecated": false,
       "name": {
        "$id": "20",
        "fixed": false,
        "raw": "Double"
-      },
-      "deprecated": false
+      }
      }
     },
     {
@@ -147,12 +147,12 @@
       "$id": "25",
       "$type": "PrimaryType",
       "knownPrimaryType": "string",
+      "deprecated": false,
       "name": {
        "$id": "26",
        "fixed": false,
        "raw": "String"
-      },
-      "deprecated": false
+      }
      }
     }
    ],
@@ -169,266 +169,11 @@
       "1.0"
      ],
      "filename": [
-      "mem:///127?oai3.shaken.json"
+      "mem:///103?oai3.shaken.json"
      ],
      "name": "Movie",
      "originalLocations": [
-      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/schemas/Movie"
-     ]
-    }
-   },
-   "deprecated": false
-  },
-  {
-   "$id": "28",
-   "$type": "CompositeType",
-   "properties": [
-    {
-     "$id": "29",
-     "isReadOnly": false,
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "30",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "31",
-      "fixed": false,
-      "raw": "Unmatched properties from the message are deserialized this collection"
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "32",
-      "fixed": false,
-      "raw": "additionalProperties"
-     },
-     "modelType": {
-      "$id": "33",
-      "$type": "DictionaryType",
-      "valueType": {
-       "$id": "34",
-       "$type": "PrimaryType",
-       "knownPrimaryType": "object",
-       "name": {
-        "$id": "35",
-        "fixed": false,
-        "raw": "Object"
-       },
-       "deprecated": false
-      },
-      "supportsAdditionalProperties": true,
-      "name": {
-       "$id": "36",
-       "fixed": false
-      },
-      "deprecated": false
-     }
-    },
-    {
-     "$id": "37",
-     "isReadOnly": false,
-     "realPath": [
-      "type"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "38",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "39",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "40",
-      "fixed": false,
-      "raw": "type"
-     },
-     "serializedName": "type",
-     "modelType": {
-      "$id": "41",
-      "$type": "PrimaryType",
-      "knownPrimaryType": "string",
-      "name": {
-       "$id": "42",
-       "fixed": false,
-       "raw": "String"
-      },
-      "deprecated": false
-     }
-    },
-    {
-     "$id": "43",
-     "isReadOnly": false,
-     "realPath": [
-      "title"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "44",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "45",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "46",
-      "fixed": false,
-      "raw": "title"
-     },
-     "serializedName": "title",
-     "modelType": {
-      "$id": "47",
-      "$type": "PrimaryType",
-      "knownPrimaryType": "string",
-      "name": {
-       "$id": "48",
-       "fixed": false,
-       "raw": "String"
-      },
-      "deprecated": false
-     }
-    },
-    {
-     "$id": "49",
-     "isReadOnly": false,
-     "realPath": [
-      "status"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "50",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "51",
-      "fixed": false
-     },
-     "extensions": {
-      "x-nullable": true
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "52",
-      "fixed": false,
-      "raw": "status"
-     },
-     "serializedName": "status",
-     "modelType": {
-      "$id": "53",
-      "$type": "PrimaryType",
-      "format": "int32",
-      "knownPrimaryType": "int",
-      "name": {
-       "$id": "54",
-       "fixed": false,
-       "raw": "Int"
-      },
-      "deprecated": false
-     }
-    },
-    {
-     "$id": "55",
-     "isReadOnly": false,
-     "realPath": [
-      "detail"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "56",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "57",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "58",
-      "fixed": false,
-      "raw": "detail"
-     },
-     "serializedName": "detail",
-     "modelType": {
-      "$id": "59",
-      "$type": "PrimaryType",
-      "knownPrimaryType": "string",
-      "name": {
-       "$id": "60",
-       "fixed": false,
-       "raw": "String"
-      },
-      "deprecated": false
-     }
-    },
-    {
-     "$id": "61",
-     "isReadOnly": false,
-     "realPath": [
-      "instance"
-     ],
-     "collectionFormat": "none",
-     "defaultValue": {
-      "$id": "62",
-      "fixed": false
-     },
-     "deprecated": false,
-     "documentation": {
-      "$id": "63",
-      "fixed": false
-     },
-     "isRequired": false,
-     "isConstant": false,
-     "name": {
-      "$id": "64",
-      "fixed": false,
-      "raw": "instance"
-     },
-     "serializedName": "instance",
-     "modelType": {
-      "$id": "65",
-      "$type": "PrimaryType",
-      "knownPrimaryType": "string",
-      "name": {
-       "$id": "66",
-       "fixed": false,
-       "raw": "String"
-      },
-      "deprecated": false
-     }
-    }
-   ],
-   "serializedName": "ProblemDetails",
-   "containsConstantProperties": false,
-   "name": {
-    "$id": "67",
-    "fixed": false,
-    "raw": "ProblemDetails"
-   },
-   "extensions": {
-    "x-ms-metadata": {
-     "apiVersions": [
-      "1.0"
-     ],
-     "filename": [
-      "mem:///127?oai3.shaken.json"
-     ],
-     "name": "ProblemDetails",
-     "originalLocations": [
-      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/schemas/ProblemDetails"
+      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/schemas/Movie"
      ]
     }
    },
@@ -443,19 +188,19 @@
  "documentation": "A simple example of ASP.NET Core Web API for movies watched during COVID-19 shelter-in-place.",
  "properties": [
   {
-   "$id": "68",
+   "$id": "28",
    "isReadOnly": false,
    "realPath": [
     "id"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "69",
+    "$id": "29",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "70",
+    "$id": "30",
     "fixed": false,
     "raw": "Movie Id"
    },
@@ -465,11 +210,11 @@
       "1.0"
      ],
      "filename": [
-      "mem:///127?oai3.shaken.json"
+      "mem:///103?oai3.shaken.json"
      ],
      "name": "paths·1vmtpd4·api-v1-movieswatched-id·get·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/parameters/paths·1vmtpd4·api-v1-movieswatched-id·get·parameters·0"
+      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/parameters/paths·1vmtpd4·api-v1-movieswatched-id·get·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -477,38 +222,38 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "71",
+    "$id": "31",
     "fixed": false,
     "raw": "id"
    },
    "serializedName": "id",
    "modelType": {
-    "$id": "72",
+    "$id": "32",
     "$type": "PrimaryType",
     "format": "int64",
     "knownPrimaryType": "long",
+    "deprecated": false,
     "name": {
-     "$id": "73",
+     "$id": "33",
      "fixed": false,
      "raw": "Long"
-    },
-    "deprecated": false
+    }
    }
   },
   {
-   "$id": "74",
+   "$id": "34",
    "isReadOnly": false,
    "realPath": [
     "id"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "75",
+    "$id": "35",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "76",
+    "$id": "36",
     "fixed": false,
     "raw": "Movie ID"
    },
@@ -518,11 +263,11 @@
       "1.0"
      ],
      "filename": [
-      "mem:///127?oai3.shaken.json"
+      "mem:///103?oai3.shaken.json"
      ],
      "name": "paths·1jo0g1b·api-v1-movieswatched-id·put·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/parameters/paths·1jo0g1b·api-v1-movieswatched-id·put·parameters·0"
+      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/parameters/paths·1jo0g1b·api-v1-movieswatched-id·put·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -530,38 +275,38 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "77",
+    "$id": "37",
     "fixed": false,
     "raw": "Id1"
    },
    "serializedName": "id",
    "modelType": {
-    "$id": "78",
+    "$id": "38",
     "$type": "PrimaryType",
     "format": "int64",
     "knownPrimaryType": "long",
+    "deprecated": false,
     "name": {
-     "$id": "79",
+     "$id": "39",
      "fixed": false,
      "raw": "Long"
-    },
-    "deprecated": false
+    }
    }
   },
   {
-   "$id": "80",
+   "$id": "40",
    "isReadOnly": false,
    "realPath": [
     "id"
    ],
    "collectionFormat": "none",
    "defaultValue": {
-    "$id": "81",
+    "$id": "41",
     "fixed": false
    },
    "deprecated": false,
    "documentation": {
-    "$id": "82",
+    "$id": "42",
     "fixed": false,
     "raw": "Movie ID"
    },
@@ -571,11 +316,11 @@
       "1.0"
      ],
      "filename": [
-      "mem:///127?oai3.shaken.json"
+      "mem:///103?oai3.shaken.json"
      ],
      "name": "paths·18xt0h8·api-v1-movieswatched-id·delete·parameters·0",
      "originalLocations": [
-      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/parameters/paths·18xt0h8·api-v1-movieswatched-id·delete·parameters·0"
+      "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/parameters/paths·18xt0h8·api-v1-movieswatched-id·delete·parameters·0"
      ]
     },
     "x-ms-parameter-location": "method"
@@ -583,38 +328,38 @@
    "isRequired": true,
    "isConstant": false,
    "name": {
-    "$id": "83",
+    "$id": "43",
     "fixed": false,
     "raw": "Id2"
    },
    "serializedName": "id",
    "modelType": {
-    "$id": "84",
+    "$id": "44",
     "$type": "PrimaryType",
     "format": "int64",
     "knownPrimaryType": "long",
+    "deprecated": false,
     "name": {
-     "$id": "85",
+     "$id": "45",
      "fixed": false,
      "raw": "Long"
-    },
-    "deprecated": false
+    }
    }
   }
  ],
  "operations": [
   {
-   "$id": "86",
+   "$id": "46",
    "methods": [
     {
-     "$id": "87",
+     "$id": "47",
      "name": {
-      "$id": "88",
+      "$id": "48",
       "fixed": false,
       "raw": "GetAllMovies"
      },
      "group": {
-      "$id": "89",
+      "$id": "49",
       "fixed": false,
       "raw": ""
      },
@@ -624,31 +369,31 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "90",
+       "$id": "50",
        "body": {
-        "$id": "91",
+        "$id": "51",
         "$type": "SequenceType",
         "elementType": {
          "$ref": "2"
         },
+        "deprecated": false,
         "name": {
-         "$id": "92",
+         "$id": "52",
          "fixed": false
-        },
-        "deprecated": false
+        }
        },
        "extensions": {
-        "$id": "93",
+        "$id": "53",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·3qwajm·api-v1-movieswatched·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·3qwajm·api-v1-movieswatched·get·responses·200"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/responses/paths·3qwajm·api-v1-movieswatched·get·responses·200"
          ]
         }
        },
@@ -656,13 +401,13 @@
       }
      },
      "defaultResponse": {
-      "$id": "94",
+      "$id": "54",
       "isNullable": true
      },
      "returnType": {
-      "$id": "95",
+      "$id": "55",
       "body": {
-       "$ref": "91"
+       "$ref": "51"
       },
       "isNullable": true
      },
@@ -679,19 +424,19 @@
      "hidden": false
     },
     {
-     "$id": "96",
+     "$id": "56",
      "parameters": [
       {
-       "$id": "97",
+       "$id": "57",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "98",
+        "$id": "58",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "99",
+        "$id": "59",
         "fixed": false
        },
        "extensions": {
@@ -700,18 +445,18 @@
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·j76kae·api-v1-movieswatched·post·requestbody",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/requestBodies/paths·j76kae·api-v1-movieswatched·post·requestbody"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/requestBodies/paths·j76kae·api-v1-movieswatched·post·requestbody"
          ]
         }
        },
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "100",
+        "$id": "60",
         "fixed": false,
         "raw": "body"
        },
@@ -722,12 +467,12 @@
       }
      ],
      "name": {
-      "$id": "101",
+      "$id": "61",
       "fixed": false,
       "raw": "CreateMovie"
      },
      "group": {
-      "$id": "102",
+      "$id": "62",
       "fixed": false,
       "raw": ""
      },
@@ -737,44 +482,22 @@
      "httpMethod": "post",
      "responses": {
       "Created": {
-       "$id": "103",
+       "$id": "63",
        "body": {
         "$ref": "2"
        },
        "extensions": {
-        "$id": "104",
+        "$id": "64",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·1s9oowk·api-v1-movieswatched·post·responses·201",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·1s9oowk·api-v1-movieswatched·post·responses·201"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "BadRequest": {
-       "$id": "105",
-       "body": {
-        "$ref": "2"
-       },
-       "extensions": {
-        "$id": "106",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0"
-         ],
-         "filename": [
-          "mem:///127?oai3.shaken.json"
-         ],
-         "name": "paths·1ejtodo·api-v1-movieswatched·post·responses·400",
-         "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·1ejtodo·api-v1-movieswatched·post·responses·400"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/responses/paths·1s9oowk·api-v1-movieswatched·post·responses·201"
          ]
         }
        },
@@ -782,11 +505,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "107",
+      "$id": "65",
       "isNullable": true
      },
      "returnType": {
-      "$id": "108",
+      "$id": "66",
       "body": {
        "$ref": "2"
       },
@@ -805,22 +528,22 @@
      "hidden": false
     },
     {
-     "$id": "109",
+     "$id": "67",
      "parameters": [
       {
-       "$id": "110",
+       "$id": "68",
        "clientProperty": {
-        "$ref": "68"
+        "$ref": "28"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "111",
+        "$id": "69",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "112",
+        "$id": "70",
         "fixed": false,
         "raw": "Movie Id"
        },
@@ -830,11 +553,11 @@
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·1vmtpd4·api-v1-movieswatched-id·get·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/parameters/paths·1vmtpd4·api-v1-movieswatched-id·get·parameters·0"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/parameters/paths·1vmtpd4·api-v1-movieswatched-id·get·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -842,32 +565,32 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "113",
+        "$id": "71",
         "fixed": false,
         "raw": "id"
        },
        "serializedName": "id",
        "modelType": {
-        "$id": "114",
+        "$id": "72",
         "$type": "PrimaryType",
         "format": "int64",
         "knownPrimaryType": "long",
+        "deprecated": false,
         "name": {
-         "$id": "115",
+         "$id": "73",
          "fixed": false,
          "raw": "Long"
-        },
-        "deprecated": false
+        }
        }
       }
      ],
      "name": {
-      "$id": "116",
+      "$id": "74",
       "fixed": false,
       "raw": "GetMovieById"
      },
      "group": {
-      "$id": "117",
+      "$id": "75",
       "fixed": false,
       "raw": ""
      },
@@ -877,44 +600,22 @@
      "httpMethod": "get",
      "responses": {
       "OK": {
-       "$id": "118",
+       "$id": "76",
        "body": {
         "$ref": "2"
        },
        "extensions": {
-        "$id": "119",
+        "$id": "77",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·ciqiol·api-v1-movieswatched-id·get·responses·200",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·ciqiol·api-v1-movieswatched-id·get·responses·200"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "NotFound": {
-       "$id": "120",
-       "body": {
-        "$ref": "2"
-       },
-       "extensions": {
-        "$id": "121",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0"
-         ],
-         "filename": [
-          "mem:///127?oai3.shaken.json"
-         ],
-         "name": "paths·lagpt8·api-v1-movieswatched-id·get·responses·404",
-         "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·lagpt8·api-v1-movieswatched-id·get·responses·404"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/responses/paths·ciqiol·api-v1-movieswatched-id·get·responses·200"
          ]
         }
        },
@@ -922,11 +623,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "122",
+      "$id": "78",
       "isNullable": true
      },
      "returnType": {
-      "$id": "123",
+      "$id": "79",
       "body": {
        "$ref": "2"
       },
@@ -945,19 +646,19 @@
      "hidden": false
     },
     {
-     "$id": "124",
+     "$id": "80",
      "parameters": [
       {
-       "$id": "125",
+       "$id": "81",
        "location": "body",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "126",
+        "$id": "82",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "127",
+        "$id": "83",
         "fixed": false
        },
        "extensions": {
@@ -966,18 +667,18 @@
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·1fbjo6z·api-v1-movieswatched-id·put·requestbody",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/requestBodies/paths·1fbjo6z·api-v1-movieswatched-id·put·requestbody"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/requestBodies/paths·1fbjo6z·api-v1-movieswatched-id·put·requestbody"
          ]
         }
        },
        "isRequired": false,
        "isConstant": false,
        "name": {
-        "$id": "128",
+        "$id": "84",
         "fixed": false,
         "raw": "body"
        },
@@ -987,19 +688,19 @@
        }
       },
       {
-       "$id": "129",
+       "$id": "85",
        "clientProperty": {
-        "$ref": "68"
+        "$ref": "28"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "130",
+        "$id": "86",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "131",
+        "$id": "87",
         "fixed": false,
         "raw": "Movie ID"
        },
@@ -1009,11 +710,11 @@
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·1jo0g1b·api-v1-movieswatched-id·put·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/parameters/paths·1jo0g1b·api-v1-movieswatched-id·put·parameters·0"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/parameters/paths·1jo0g1b·api-v1-movieswatched-id·put·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -1021,32 +722,32 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "132",
+        "$id": "88",
         "fixed": false,
         "raw": "id"
        },
        "serializedName": "id",
        "modelType": {
-        "$id": "133",
+        "$id": "89",
         "$type": "PrimaryType",
         "format": "int64",
         "knownPrimaryType": "long",
+        "deprecated": false,
         "name": {
-         "$id": "134",
+         "$id": "90",
          "fixed": false,
          "raw": "Long"
-        },
-        "deprecated": false
+        }
        }
       }
      ],
      "name": {
-      "$id": "135",
+      "$id": "91",
       "fixed": false,
       "raw": "UpdateMovieById"
      },
      "group": {
-      "$id": "136",
+      "$id": "92",
       "fixed": false,
       "raw": ""
      },
@@ -1056,63 +757,19 @@
      "httpMethod": "put",
      "responses": {
       "NoContent": {
-       "$id": "137",
+       "$id": "93",
        "extensions": {
-        "$id": "138",
+        "$id": "94",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·1tjvw62·api-v1-movieswatched-id·put·responses·204",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·1tjvw62·api-v1-movieswatched-id·put·responses·204"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "BadRequest": {
-       "$id": "139",
-       "body": {
-        "$ref": "28"
-       },
-       "extensions": {
-        "$id": "140",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0"
-         ],
-         "filename": [
-          "mem:///127?oai3.shaken.json"
-         ],
-         "name": "paths·dxv7ob·api-v1-movieswatched-id·put·responses·400",
-         "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·dxv7ob·api-v1-movieswatched-id·put·responses·400"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "NotFound": {
-       "$id": "141",
-       "body": {
-        "$ref": "28"
-       },
-       "extensions": {
-        "$id": "142",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0"
-         ],
-         "filename": [
-          "mem:///127?oai3.shaken.json"
-         ],
-         "name": "paths·1hkswjj·api-v1-movieswatched-id·put·responses·404",
-         "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·1hkswjj·api-v1-movieswatched-id·put·responses·404"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/responses/paths·1tjvw62·api-v1-movieswatched-id·put·responses·204"
          ]
         }
        },
@@ -1120,14 +777,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "143",
+      "$id": "95",
       "isNullable": true
      },
      "returnType": {
-      "$id": "144",
-      "body": {
-       "$ref": "28"
-      },
+      "$id": "96",
       "isNullable": true
      },
      "description": "Changes the information for a watched movie.",
@@ -1143,22 +797,22 @@
      "hidden": false
     },
     {
-     "$id": "145",
+     "$id": "97",
      "parameters": [
       {
-       "$id": "146",
+       "$id": "98",
        "clientProperty": {
-        "$ref": "68"
+        "$ref": "28"
        },
        "location": "path",
        "collectionFormat": "none",
        "defaultValue": {
-        "$id": "147",
+        "$id": "99",
         "fixed": false
        },
        "deprecated": false,
        "documentation": {
-        "$id": "148",
+        "$id": "100",
         "fixed": false,
         "raw": "Movie ID"
        },
@@ -1168,11 +822,11 @@
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·18xt0h8·api-v1-movieswatched-id·delete·parameters·0",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/parameters/paths·18xt0h8·api-v1-movieswatched-id·delete·parameters·0"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/parameters/paths·18xt0h8·api-v1-movieswatched-id·delete·parameters·0"
          ]
         },
         "x-ms-parameter-location": "method"
@@ -1180,32 +834,32 @@
        "isRequired": true,
        "isConstant": false,
        "name": {
-        "$id": "149",
+        "$id": "101",
         "fixed": false,
         "raw": "id"
        },
        "serializedName": "id",
        "modelType": {
-        "$id": "150",
+        "$id": "102",
         "$type": "PrimaryType",
         "format": "int64",
         "knownPrimaryType": "long",
+        "deprecated": false,
         "name": {
-         "$id": "151",
+         "$id": "103",
          "fixed": false,
          "raw": "Long"
-        },
-        "deprecated": false
+        }
        }
       }
      ],
      "name": {
-      "$id": "152",
+      "$id": "104",
       "fixed": false,
       "raw": "DeleteMovieById"
      },
      "group": {
-      "$id": "153",
+      "$id": "105",
       "fixed": false,
       "raw": ""
      },
@@ -1215,41 +869,19 @@
      "httpMethod": "delete",
      "responses": {
       "NoContent": {
-       "$id": "154",
+       "$id": "106",
        "extensions": {
-        "$id": "155",
+        "$id": "107",
         "x-ms-metadata": {
          "apiVersions": [
           "1.0"
          ],
          "filename": [
-          "mem:///127?oai3.shaken.json"
+          "mem:///103?oai3.shaken.json"
          ],
          "name": "paths·1k0uueb·api-v1-movieswatched-id·delete·responses·204",
          "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·1k0uueb·api-v1-movieswatched-id·delete·responses·204"
-         ]
-        }
-       },
-       "isNullable": true
-      },
-      "NotFound": {
-       "$id": "156",
-       "body": {
-        "$ref": "28"
-       },
-       "extensions": {
-        "$id": "157",
-        "x-ms-metadata": {
-         "apiVersions": [
-          "1.0"
-         ],
-         "filename": [
-          "mem:///127?oai3.shaken.json"
-         ],
-         "name": "paths·1h7irmr·api-v1-movieswatched-id·delete·responses·404",
-         "originalLocations": [
-          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swaggerSpec/v1/swagger.json#/components/responses/paths·1h7irmr·api-v1-movieswatched-id·delete·responses·404"
+          "file:///C:/Users/bomo/AspNetCore.Docs/aspnetcore/tutorials/web-api-help-pages-using-swagger/swagger/v1/swagger.json#/components/responses/paths·1k0uueb·api-v1-movieswatched-id·delete·responses·204"
          ]
         }
        },
@@ -1257,14 +889,11 @@
       }
      },
      "defaultResponse": {
-      "$id": "158",
+      "$id": "108",
       "isNullable": true
      },
      "returnType": {
-      "$id": "159",
-      "body": {
-       "$ref": "28"
-      },
+      "$id": "109",
       "isNullable": true
      },
      "description": "Removes a watched movie.",
@@ -1281,12 +910,12 @@
     }
    ],
    "name": {
-    "$id": "160",
+    "$id": "110",
     "fixed": false,
     "raw": ""
    },
    "typeName": {
-    "$id": "161",
+    "$id": "111",
     "fixed": false
    },
    "nameForProperty": "MoviesWatchedAPI"
