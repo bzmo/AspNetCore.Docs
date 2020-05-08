@@ -49,8 +49,8 @@
                 TermsOfService = new Uri("https://example.com/terms"),
                 Contact = new OpenApiContact
                 {
-                    Name = "Bo Mo",
-                    Url = new Uri("https://twitter.com/iambzmo"),
+                    Name = "Contact",
+                    Url = new Uri("https://example.com/contact"),
                 },
                 License = new OpenApiLicense
                 {

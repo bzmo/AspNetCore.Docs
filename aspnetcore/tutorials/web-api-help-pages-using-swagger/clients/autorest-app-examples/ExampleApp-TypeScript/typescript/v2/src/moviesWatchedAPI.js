@@ -4,13 +4,15 @@
  * Changes may cause incorrect behavior and will be lost if the code is
  * regenerated.
  */
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-const msRest = require("@azure/ms-rest-js");
 const Models = require("./models");
 exports.MoviesWatchedAPIModels = Models;
 const Mappers = require("./models/mappers");
 exports.MoviesWatchedAPIMappers = Mappers;
-const Parameters = require("./models/parameters");
+const operations = require("./operations");
 const moviesWatchedAPIContext_1 = require("./moviesWatchedAPIContext");
 exports.MoviesWatchedAPIContext = moviesWatchedAPIContext_1.MoviesWatchedAPIContext;
 class MoviesWatchedAPI extends moviesWatchedAPIContext_1.MoviesWatchedAPIContext {
@@ -20,152 +22,9 @@ class MoviesWatchedAPI extends moviesWatchedAPIContext_1.MoviesWatchedAPIContext
      */
     constructor(options) {
         super(options);
-    }
-    getAllMovies(options, callback) {
-        return this.sendOperationRequest({
-            options
-        }, getAllMoviesOperationSpec, callback);
-    }
-    createMovie(options, callback) {
-        return this.sendOperationRequest({
-            options
-        }, createMovieOperationSpec, callback);
-    }
-    updateMovieRating(id, options, callback) {
-        return this.sendOperationRequest({
-            id,
-            options
-        }, updateMovieRatingOperationSpec, callback);
-    }
-    getMovieById(id, options, callback) {
-        return this.sendOperationRequest({
-            id,
-            options
-        }, getMovieByIdOperationSpec, callback);
-    }
-    updateMovieById(id, options, callback) {
-        return this.sendOperationRequest({
-            id,
-            options
-        }, updateMovieByIdOperationSpec, callback);
-    }
-    deleteMovieById(id, options, callback) {
-        return this.sendOperationRequest({
-            id,
-            options
-        }, deleteMovieByIdOperationSpec, callback);
+        this.moviesWatched = new operations.MoviesWatched(this);
     }
 }
 exports.MoviesWatchedAPI = MoviesWatchedAPI;
-// Operation Specifications
-const serializer = new msRest.Serializer(Mappers);
-const getAllMoviesOperationSpec = {
-    httpMethod: "GET",
-    path: "api/v2/MoviesWatched",
-    responses: {
-        200: {
-            bodyMapper: {
-                serializedName: "parsedResponse",
-                type: {
-                    name: "Sequence",
-                    element: {
-                        type: {
-                            name: "Composite",
-                            className: "Movie"
-                        }
-                    }
-                }
-            }
-        },
-        default: {}
-    },
-    serializer
-};
-const createMovieOperationSpec = {
-    httpMethod: "POST",
-    path: "api/v2/MoviesWatched",
-    requestBody: {
-        parameterPath: [
-            "options",
-            "body"
-        ],
-        mapper: Mappers.Movie
-    },
-    responses: {
-        201: {
-            bodyMapper: Mappers.Movie
-        },
-        default: {}
-    },
-    serializer
-};
-const updateMovieRatingOperationSpec = {
-    httpMethod: "PATCH",
-    path: "api/v2/MoviesWatched/{id}",
-    urlParameters: [
-        Parameters.id
-    ],
-    requestBody: {
-        parameterPath: [
-            "options",
-            "body"
-        ],
-        mapper: {
-            serializedName: "body",
-            type: {
-                name: "Number"
-            }
-        }
-    },
-    responses: {
-        204: {},
-        default: {}
-    },
-    serializer
-};
-const getMovieByIdOperationSpec = {
-    httpMethod: "GET",
-    path: "api/v2/MoviesWatched/{id}",
-    urlParameters: [
-        Parameters.id
-    ],
-    responses: {
-        200: {
-            bodyMapper: Mappers.Movie
-        },
-        default: {}
-    },
-    serializer
-};
-const updateMovieByIdOperationSpec = {
-    httpMethod: "PUT",
-    path: "api/v2/MoviesWatched/{id}",
-    urlParameters: [
-        Parameters.id
-    ],
-    requestBody: {
-        parameterPath: [
-            "options",
-            "body"
-        ],
-        mapper: Mappers.Movie
-    },
-    responses: {
-        204: {},
-        default: {}
-    },
-    serializer
-};
-const deleteMovieByIdOperationSpec = {
-    httpMethod: "DELETE",
-    path: "api/v2/MoviesWatched/{id}",
-    urlParameters: [
-        Parameters.id
-    ],
-    responses: {
-        204: {},
-        default: {}
-    },
-    serializer
-};
+__export(require("./operations"));
 //# sourceMappingURL=moviesWatchedAPI.js.map

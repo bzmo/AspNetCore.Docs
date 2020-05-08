@@ -49,20 +49,26 @@
     <TypeScriptCompile Include="typescript\v1\src\models\parameters.ts" />
     <TypeScriptCompile Include="typescript\v1\src\moviesWatchedAPI.ts" />
     <TypeScriptCompile Include="typescript\v1\src\moviesWatchedAPIContext.ts" />
+    <TypeScriptCompile Include="typescript\v1\src\operations\index.ts" />
+    <TypeScriptCompile Include="typescript\v1\src\operations\moviesWatched.ts" />
     <TypeScriptCompile Include="typescript\v2\src\models\index.ts" />
     <TypeScriptCompile Include="typescript\v2\src\models\mappers.ts" />
     <TypeScriptCompile Include="typescript\v2\src\models\parameters.ts" />
     <TypeScriptCompile Include="typescript\v2\src\moviesWatchedAPI.ts" />
     <TypeScriptCompile Include="typescript\v2\src\moviesWatchedAPIContext.ts" />
+    <TypeScriptCompile Include="typescript\v2\src\operations\index.ts" />
+    <TypeScriptCompile Include="typescript\v2\src\operations\moviesWatched.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="typescript\" />
     <Folder Include="typescript\v1\" />
     <Folder Include="typescript\v1\src\" />
     <Folder Include="typescript\v1\src\models\" />
+    <Folder Include="typescript\v1\src\operations\" />
     <Folder Include="typescript\v2\" />
     <Folder Include="typescript\v2\src\" />
     <Folder Include="typescript\v2\src\models\" />
+    <Folder Include="typescript\v2\src\operations\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

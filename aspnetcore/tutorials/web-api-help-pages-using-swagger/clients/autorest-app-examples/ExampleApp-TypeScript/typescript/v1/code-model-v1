@@ -361,9 +361,9 @@
      "group": {
       "$id": "49",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "GetAllMovies",
+     "serializedName": "MoviesWatched_GetAllMovies",
      "url": "/api/v1/MoviesWatched",
      "isAbsoluteUrl": false,
      "httpMethod": "get",
@@ -474,9 +474,9 @@
      "group": {
       "$id": "62",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "CreateMovie",
+     "serializedName": "MoviesWatched_CreateMovie",
      "url": "/api/v1/MoviesWatched",
      "isAbsoluteUrl": false,
      "httpMethod": "post",
@@ -592,9 +592,9 @@
      "group": {
       "$id": "75",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "GetMovieById",
+     "serializedName": "MoviesWatched_GetMovieById",
      "url": "/api/v1/MoviesWatched/{id}",
      "isAbsoluteUrl": false,
      "httpMethod": "get",
@@ -749,9 +749,9 @@
      "group": {
       "$id": "92",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "UpdateMovieById",
+     "serializedName": "MoviesWatched_UpdateMovieById",
      "url": "/api/v1/MoviesWatched/{id}",
      "isAbsoluteUrl": false,
      "httpMethod": "put",
@@ -861,9 +861,9 @@
      "group": {
       "$id": "105",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "DeleteMovieById",
+     "serializedName": "MoviesWatched_DeleteMovieById",
      "url": "/api/v1/MoviesWatched/{id}",
      "isAbsoluteUrl": false,
      "httpMethod": "delete",
@@ -912,13 +912,13 @@
    "name": {
     "$id": "110",
     "fixed": false,
-    "raw": ""
+    "raw": "MoviesWatched"
    },
    "typeName": {
     "$id": "111",
     "fixed": false
    },
-   "nameForProperty": "MoviesWatchedAPI"
+   "nameForProperty": "MoviesWatched"
   }
  ]
 }

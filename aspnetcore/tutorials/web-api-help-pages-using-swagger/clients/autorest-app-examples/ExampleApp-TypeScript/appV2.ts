@@ -19,7 +19,7 @@ export class appV2 {
 
         try {
             // Get All
-            var getAllMoviesResponse: model.GetAllMoviesResponse = await api.getAllMovies();
+            var getAllMoviesResponse: model.MoviesWatchedGetAllMoviesResponse = await api.moviesWatched.getAllMovies();
             getAllMoviesResponse.forEach((movie: model.Movie) => {
                 this.PrintMovieInfo(movie);
             });
@@ -27,10 +27,10 @@ export class appV2 {
             console.log("-----------");
 
             // Create
-            var createMovieOptions: model.MoviesWatchedAPICreateMovieOptionalParams = {
+            var createMovieOptions: model.MoviesWatchedCreateMovieOptionalParams = {
                 body: movie
             };
-            var createMovieResponse: model.CreateMovieResponse = await api.createMovie(createMovieOptions);
+            var createMovieResponse: model.MoviesWatchedCreateMovieResponse = await api.moviesWatched.createMovie(createMovieOptions);
             this.ProcessResponse(createMovieResponse._response.parsedBody, (m: model.Movie): void => {
                 movie = m;
             });
@@ -42,28 +42,28 @@ export class appV2 {
             // Update
             movie.rating = 4.7;
             movie.comment = "Found him!";
-            var updateMovieOptions: model.MoviesWatchedAPIUpdateMovieByIdOptionalParams = {
+            var updateMovieOptions: model.MoviesWatchedUpdateMovieByIdOptionalParams = {
                 body: movie
             };
-            await api.updateMovieById(id, updateMovieOptions);
+            await api.moviesWatched.updateMovieById(id, updateMovieOptions);
 
             // Patch
-            var updateMovieRatingOptions: model.MoviesWatchedAPIUpdateMovieRatingOptionalParams = {
+            var updateMovieRatingOptions: model.MoviesWatchedUpdateMovieRatingOptionalParams = {
                 body: 4.9
             };
-            var updateMovieRatingResponse = await api.updateMovieRating(id, updateMovieRatingOptions);
+            var updateMovieRatingResponse = await api.moviesWatched.updateMovieRating(id, updateMovieRatingOptions);
             this.ProcessResponse(updateMovieRatingResponse._response.parsedBody);
 
             // Get
-            var getMovieByIdResponse: model.GetMovieByIdResponse = await api.getMovieById(id);
+            var getMovieByIdResponse: model.MoviesWatchedGetMovieByIdResponse = await api.moviesWatched.getMovieById(id);
             this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
 
             // Delete
-            await api.deleteMovieById(id);
+            await api.moviesWatched.deleteMovieById(id);
 
             console.log("-----------");
 
-            getAllMoviesResponse = await api.getAllMovies();
+            getAllMoviesResponse = await api.moviesWatched.getAllMovies();
             getAllMoviesResponse.forEach(movie => {
                 this.PrintMovieInfo(movie);
             });

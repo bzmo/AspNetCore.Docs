@@ -414,9 +414,9 @@
      "group": {
       "$id": "55",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "GetAllMovies",
+     "serializedName": "MoviesWatched_GetAllMovies",
      "url": "/api/v2/MoviesWatched",
      "isAbsoluteUrl": false,
      "httpMethod": "get",
@@ -527,9 +527,9 @@
      "group": {
       "$id": "68",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "CreateMovie",
+     "serializedName": "MoviesWatched_CreateMovie",
      "url": "/api/v2/MoviesWatched",
      "isAbsoluteUrl": false,
      "httpMethod": "post",
@@ -693,9 +693,9 @@
      "group": {
       "$id": "87",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "UpdateMovieRating",
+     "serializedName": "MoviesWatched_UpdateMovieRating",
      "url": "/api/v2/MoviesWatched/{id}",
      "isAbsoluteUrl": false,
      "httpMethod": "patch",
@@ -805,9 +805,9 @@
      "group": {
       "$id": "100",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "GetMovieById",
+     "serializedName": "MoviesWatched_GetMovieById",
      "url": "/api/v2/MoviesWatched/{id}",
      "isAbsoluteUrl": false,
      "httpMethod": "get",
@@ -962,9 +962,9 @@
      "group": {
       "$id": "117",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "UpdateMovieById",
+     "serializedName": "MoviesWatched_UpdateMovieById",
      "url": "/api/v2/MoviesWatched/{id}",
      "isAbsoluteUrl": false,
      "httpMethod": "put",
@@ -1074,9 +1074,9 @@
      "group": {
       "$id": "130",
       "fixed": false,
-      "raw": ""
+      "raw": "MoviesWatched"
      },
-     "serializedName": "DeleteMovieById",
+     "serializedName": "MoviesWatched_DeleteMovieById",
      "url": "/api/v2/MoviesWatched/{id}",
      "isAbsoluteUrl": false,
      "httpMethod": "delete",
@@ -1125,13 +1125,13 @@
    "name": {
     "$id": "135",
     "fixed": false,
-    "raw": ""
+    "raw": "MoviesWatched"
    },
    "typeName": {
     "$id": "136",
     "fixed": false
    },
-   "nameForProperty": "MoviesWatchedAPI"
+   "nameForProperty": "MoviesWatched"
   }
  ]
 }

@@ -12,14 +12,13 @@ namespace ExampleApp
         public static void SendAPIRequests(string[] args)
         {
             Uri baseUri = new Uri("https://localhost:44380");
-            IMoviesWatchedAPI api = new MoviesWatchedAPI(baseUri);
-
+            MoviesWatchedAPI api = new MoviesWatchedAPI(baseUri);
             Movie movie = new Movie("Finding Nemo", 4.7, null, "Found!");
 
             try
             {
                 // Get All
-                IList<Movie> movies = api.GetAllMovies();
+                IList<Movie> movies = api.MoviesWatched.GetAllMovies();
                 foreach (Movie m in movies)
                 {
                     PrintMovieInfo(m);
@@ -28,7 +27,7 @@ namespace ExampleApp
                 Console.WriteLine("---");
 
                 // Create
-                movie = api.CreateMovie(movie);
+                movie = api.MoviesWatched.CreateMovie(movie);
                 PrintMovieInfo(movie);
 
                 long id = movie.Id ?? 4;
@@ -36,19 +35,19 @@ namespace ExampleApp
                 // Update
                 movie.Rating = 4.7;
                 movie.Comment = "Found him!";
-                api.UpdateMovieById(id, movie);
+                api.MoviesWatched.UpdateMovieById(id, movie);
 
                 // Get
-                movie = api.GetMovieById(id);
+                movie = api.MoviesWatched.GetMovieById(id);
                 PrintMovieInfo(movie);
 
                 // Delete
-                api.DeleteMovieById(id);
+                api.MoviesWatched.DeleteMovieById(id);
 
                 Console.WriteLine("---");
 
                 // Get All
-                movies = api.GetAllMovies();
+                movies = api.MoviesWatched.GetAllMovies();
                 foreach (Movie m in movies)
                 {
                     PrintMovieInfo(m);

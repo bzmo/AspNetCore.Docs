@@ -13,7 +13,7 @@ namespace ExampleApp
         public static void SendAPIRequests(string[] args)
         {
             Uri baseUri = new Uri("https://localhost:44380");
-            IMoviesWatchedAPI api = new MoviesWatchedAPI(baseUri);
+            MoviesWatchedAPI api = new MoviesWatchedAPI(baseUri);
 
             Movie movie = new Movie("Finding Nemo", 4.7, null, "Found!");
 
@@ -21,7 +21,7 @@ namespace ExampleApp
             {
                 // Get All
                 Console.WriteLine("Movies now sorted!");
-                IList<Movie> movies = api.GetAllMovies();
+                IList<Movie> movies = api.MoviesWatched.GetAllMovies();
                 foreach (Movie m in movies)
                 {
                     PrintMovieInfo(m);
@@ -30,7 +30,7 @@ namespace ExampleApp
                 Console.WriteLine("---");
 
                 // Create
-                movie = api.CreateMovie(movie);
+                movie = api.MoviesWatched.CreateMovie(movie);
                 PrintMovieInfo(movie);
 
                 Console.WriteLine("---");
@@ -40,23 +40,23 @@ namespace ExampleApp
                 // Update
                 movie.Rating = 4.7;
                 movie.Comment = "Found him!";
-                api.UpdateMovieById(id, movie);
+                api.MoviesWatched.UpdateMovieById(id, movie);
 
                 // Patch
-                api.UpdateMovieRating(id, 4.9);
+                api.MoviesWatched.UpdateMovieRating(id, 4.9);
                 Console.WriteLine("Patch Request made!");
 
                 // Get
-                movie = api.GetMovieById(id);
+                movie = api.MoviesWatched.GetMovieById(id);
                 PrintMovieInfo(movie);
 
                 // Delete
-                api.DeleteMovieById(id);
+                api.MoviesWatched.DeleteMovieById(id);
 
                 Console.WriteLine("---");
 
                 // Get All
-                movies = api.GetAllMovies();
+                movies = api.MoviesWatched.GetAllMovies();
                 foreach (Movie m in movies)
                 {
                     PrintMovieInfo(m);

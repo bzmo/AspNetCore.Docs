@@ -24,7 +24,7 @@ class appV2 {
             };
             try {
                 // Get All
-                var getAllMoviesResponse = yield api.getAllMovies();
+                var getAllMoviesResponse = yield api.moviesWatched.getAllMovies();
                 getAllMoviesResponse.forEach((movie) => {
                     this.PrintMovieInfo(movie);
                 });
@@ -33,7 +33,7 @@ class appV2 {
                 var createMovieOptions = {
                     body: movie
                 };
-                var createMovieResponse = yield api.createMovie(createMovieOptions);
+                var createMovieResponse = yield api.moviesWatched.createMovie(createMovieOptions);
                 this.ProcessResponse(createMovieResponse._response.parsedBody, (m) => {
                     movie = m;
                 });
@@ -45,20 +45,20 @@ class appV2 {
                 var updateMovieOptions = {
                     body: movie
                 };
-                yield api.updateMovieById(id, updateMovieOptions);
+                yield api.moviesWatched.updateMovieById(id, updateMovieOptions);
                 // Patch
                 var updateMovieRatingOptions = {
                     body: 4.9
                 };
-                var updateMovieRatingResponse = yield api.updateMovieRating(id, updateMovieRatingOptions);
+                var updateMovieRatingResponse = yield api.moviesWatched.updateMovieRating(id, updateMovieRatingOptions);
                 this.ProcessResponse(updateMovieRatingResponse._response.parsedBody);
                 // Get
-                var getMovieByIdResponse = yield api.getMovieById(id);
+                var getMovieByIdResponse = yield api.moviesWatched.getMovieById(id);
                 this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
                 // Delete
-                yield api.deleteMovieById(id);
+                yield api.moviesWatched.deleteMovieById(id);
                 console.log("-----------");
-                getAllMoviesResponse = yield api.getAllMovies();
+                getAllMoviesResponse = yield api.moviesWatched.getAllMovies();
                 getAllMoviesResponse.forEach(movie => {
                     this.PrintMovieInfo(movie);
                 });

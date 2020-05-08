@@ -27,7 +27,8 @@ namespace MoviesWatched.Controllers.v2
         [SwaggerOperation(
             Summary = "Gets all watched movies sorted alphabetically.",
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
-            OperationId = nameof(GetAllMovies)
+            OperationId = controllerName + "_" + nameof(GetAllMovies),
+            Tags = new string[] { controllerName }
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IEnumerable<Movie>))]
         public async override Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
@@ -44,7 +45,8 @@ namespace MoviesWatched.Controllers.v2
         [SwaggerOperation(
             Summary = "Updates a rating of a specific Movie.",
             Description = "Updates movie rating.",
-            OperationId = nameof(UpdateMovieRating)
+            OperationId = controllerName + "_" + nameof(UpdateMovieRating),
+            Tags = new string[] { controllerName }
         )]
         [SwaggerResponse(StatusCodes.Status204NoContent, "The movie rating was updated.")]
         public async virtual Task<IActionResult> UpdateMovieRating(

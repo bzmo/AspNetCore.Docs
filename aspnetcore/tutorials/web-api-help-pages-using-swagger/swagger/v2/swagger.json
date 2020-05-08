@@ -5,8 +5,8 @@
     "description": "A simple example of ASP.NET Core Web API for movies watched during COVID-19 shelter-in-place.",
     "termsOfService": "https://example.com/terms",
     "contact": {
-      "name": "Bo Mo",
-      "url": "https://twitter.com/iambzmo"
+      "name": "Contact",
+      "url": "https://example.com/contact"
     },
     "license": {
       "name": "Use under LICX",
@@ -22,7 +22,7 @@
         ],
         "summary": "Gets all watched movies sorted alphabetically.",
         "description": "Fetch all movies watched during COVID-19 shelter-in-place.",
-        "operationId": "GetAllMovies",
+        "operationId": "MoviesWatched_GetAllMovies",
         "responses": {
           "200": {
             "description": "Movies have been fetched",
@@ -45,7 +45,7 @@
         ],
         "summary": "Creates a Movie.",
         "description": "Record a movie watched during COVID-19 shelter-in-place.",
-        "operationId": "CreateMovie",
+        "operationId": "MoviesWatched_CreateMovie",
         "requestBody": {
           "content": {
             "application/json": {
@@ -86,7 +86,7 @@
         ],
         "summary": "Updates a rating of a specific Movie.",
         "description": "Updates movie rating.",
-        "operationId": "UpdateMovieRating",
+        "operationId": "MoviesWatched_UpdateMovieRating",
         "parameters": [
           {
             "name": "id",
@@ -133,7 +133,7 @@
         ],
         "summary": "Gets a specific movie by its ID.",
         "description": "Fetch a movie watched during COVID-19 shelter-in-place.",
-        "operationId": "GetMovieById",
+        "operationId": "MoviesWatched_GetMovieById",
         "parameters": [
           {
             "name": "id",
@@ -165,7 +165,7 @@
         ],
         "summary": "Updates an existing Movie.",
         "description": "Changes the information for a watched movie.",
-        "operationId": "UpdateMovieById",
+        "operationId": "MoviesWatched_UpdateMovieById",
         "parameters": [
           {
             "name": "id",
@@ -209,7 +209,7 @@
         ],
         "summary": "Deletes a specific Movie.",
         "description": "Removes a watched movie.",
-        "operationId": "DeleteMovieById",
+        "operationId": "MoviesWatched_DeleteMovieById",
         "parameters": [
           {
             "name": "id",

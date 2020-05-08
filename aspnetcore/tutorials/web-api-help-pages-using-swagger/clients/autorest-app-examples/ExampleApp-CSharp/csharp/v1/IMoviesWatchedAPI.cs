@@ -6,13 +6,8 @@
 
 namespace WatchedMovies.Rest.v1
 {
-    using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// A simple example of ASP.NET Core Web API for movies watched during
@@ -37,87 +32,9 @@ namespace WatchedMovies.Rest.v1
 
 
         /// <summary>
-        /// Gets all watched movies.
+        /// Gets the IMoviesWatched.
         /// </summary>
-        /// <remarks>
-        /// Fetch all movies watched during COVID-19 shelter-in-place.
-        /// </remarks>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<IList<Movie>>> GetAllMoviesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Creates a Movie.
-        /// </summary>
-        /// <remarks>
-        /// Record a movie watched during COVID-19 shelter-in-place.
-        /// </remarks>
-        /// <param name='body'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Movie>> CreateMovieWithHttpMessagesAsync(Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Gets a specific movie by its ID.
-        /// </summary>
-        /// <remarks>
-        /// Fetch a movie watched during COVID-19 shelter-in-place.
-        /// </remarks>
-        /// <param name='id'>
-        /// Movie Id
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<Movie>> GetMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Updates an existing Movie.
-        /// </summary>
-        /// <remarks>
-        /// Changes the information for a watched movie.
-        /// </remarks>
-        /// <param name='id'>
-        /// Movie ID
-        /// </param>
-        /// <param name='body'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> UpdateMovieByIdWithHttpMessagesAsync(long id, Movie body = default(Movie), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Deletes a specific Movie.
-        /// </summary>
-        /// <remarks>
-        /// Removes a watched movie.
-        /// </remarks>
-        /// <param name='id'>
-        /// Movie ID
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse> DeleteMovieByIdWithHttpMessagesAsync(long id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IMoviesWatched MoviesWatched { get; }
 
     }
 }

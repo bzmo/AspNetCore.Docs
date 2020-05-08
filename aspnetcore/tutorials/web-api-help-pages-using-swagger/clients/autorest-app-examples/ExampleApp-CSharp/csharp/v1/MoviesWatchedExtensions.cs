@@ -13,9 +13,9 @@ namespace WatchedMovies.Rest.v1
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for MoviesWatchedAPI.
+    /// Extension methods for MoviesWatched.
     /// </summary>
-    public static partial class MoviesWatchedAPIExtensions
+    public static partial class MoviesWatchedExtensions
     {
             /// <summary>
             /// Gets all watched movies.
@@ -26,7 +26,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IList<Movie> GetAllMovies(this IMoviesWatchedAPI operations)
+            public static IList<Movie> GetAllMovies(this IMoviesWatched operations)
             {
                 return operations.GetAllMoviesAsync().GetAwaiter().GetResult();
             }
@@ -43,7 +43,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<Movie>> GetAllMoviesAsync(this IMoviesWatchedAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<Movie>> GetAllMoviesAsync(this IMoviesWatched operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetAllMoviesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
@@ -62,7 +62,7 @@ namespace WatchedMovies.Rest.v1
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static Movie CreateMovie(this IMoviesWatchedAPI operations, Movie body = default(Movie))
+            public static Movie CreateMovie(this IMoviesWatched operations, Movie body = default(Movie))
             {
                 return operations.CreateMovieAsync(body).GetAwaiter().GetResult();
             }
@@ -81,7 +81,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Movie> CreateMovieAsync(this IMoviesWatchedAPI operations, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Movie> CreateMovieAsync(this IMoviesWatched operations, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateMovieWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -101,7 +101,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='id'>
             /// Movie Id
             /// </param>
-            public static Movie GetMovieById(this IMoviesWatchedAPI operations, long id)
+            public static Movie GetMovieById(this IMoviesWatched operations, long id)
             {
                 return operations.GetMovieByIdAsync(id).GetAwaiter().GetResult();
             }
@@ -121,7 +121,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Movie> GetMovieByIdAsync(this IMoviesWatchedAPI operations, long id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Movie> GetMovieByIdAsync(this IMoviesWatched operations, long id, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetMovieByIdWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -143,7 +143,7 @@ namespace WatchedMovies.Rest.v1
             /// </param>
             /// <param name='body'>
             /// </param>
-            public static void UpdateMovieById(this IMoviesWatchedAPI operations, long id, Movie body = default(Movie))
+            public static void UpdateMovieById(this IMoviesWatched operations, long id, Movie body = default(Movie))
             {
                 operations.UpdateMovieByIdAsync(id, body).GetAwaiter().GetResult();
             }
@@ -165,7 +165,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateMovieByIdAsync(this IMoviesWatchedAPI operations, long id, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateMovieByIdAsync(this IMoviesWatched operations, long id, Movie body = default(Movie), CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateMovieByIdWithHttpMessagesAsync(id, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -182,7 +182,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='id'>
             /// Movie ID
             /// </param>
-            public static void DeleteMovieById(this IMoviesWatchedAPI operations, long id)
+            public static void DeleteMovieById(this IMoviesWatched operations, long id)
             {
                 operations.DeleteMovieByIdAsync(id).GetAwaiter().GetResult();
             }
@@ -202,7 +202,7 @@ namespace WatchedMovies.Rest.v1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteMovieByIdAsync(this IMoviesWatchedAPI operations, long id, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteMovieByIdAsync(this IMoviesWatched operations, long id, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.DeleteMovieByIdWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

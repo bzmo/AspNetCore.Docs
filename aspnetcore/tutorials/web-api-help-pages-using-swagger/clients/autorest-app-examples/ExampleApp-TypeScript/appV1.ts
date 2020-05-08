@@ -10,7 +10,7 @@ export class appV1 {
         var apiOptions: model.MoviesWatchedAPIOptions = {
             baseUri: "https://localhost:44380"
         };
-        var api: MoviesWatchedAPI = new MoviesWatchedAPI(apiOptions);
+      var api: MoviesWatchedAPI = new MoviesWatchedAPI(apiOptions);
 
         var movie: model.Movie = {
             name: "Finding Nemo",
@@ -20,47 +20,47 @@ export class appV1 {
 
         try {
             // Get All
-            var getAllMoviesResponse: model.GetAllMoviesResponse = await api.getAllMovies();
-            getAllMoviesResponse.forEach((movie: model.Movie) => {
-                this.PrintMovieInfo(movie);
-            });
+          var getAllMoviesResponse: model.MoviesWatchedGetAllMoviesResponse = await api.moviesWatched.getAllMovies();
+          getAllMoviesResponse.forEach((movie: model.Movie) => {
+              this.PrintMovieInfo(movie);
+          });
 
-            console.log("-----------");
+          console.log("-----------");
 
-            // Create
-            var createMovieOptions: model.MoviesWatchedAPICreateMovieOptionalParams = {
-                body: movie
-            };
-            var createMovieResponse: model.CreateMovieResponse = await api.createMovie(createMovieOptions);
-            this.ProcessResponse(createMovieResponse._response.parsedBody, (m: model.Movie): void => {
-                movie = m;
-            });
+          // Create
+          var createMovieOptions: model.MoviesWatchedCreateMovieOptionalParams = {
+              body: movie
+          };
+          var createMovieResponse: model.MoviesWatchedCreateMovieOptionalParams = await api.moviesWatched.createMovie(createMovieOptions);
+          this.ProcessResponse(createMovieResponse._response.parsedBody, (m: model.Movie): void => {
+              movie = m;
+          });
 
-            var id: number = movie.id;
+          var id: number = movie.id;
 
-            console.log("-----------");
+          console.log("-----------");
 
-            // Update
-            movie.rating = 4.7;
-            movie.comment = "Found him!";
-            var updateMovieOptions: model.MoviesWatchedAPIUpdateMovieByIdOptionalParams = {
-                body: movie
-            };
-            await api.updateMovieById(id, updateMovieOptions);
+          // Update
+          movie.rating = 4.7;
+          movie.comment = "Found him!";
+          var updateMovieOptions: model.MoviesWatchedUpdateMovieByIdOptionalParams = {
+              body: movie
+          };
+          await api.moviesWatched.updateMovieById(id, updateMovieOptions);
 
-            // Get
-            var getMovieByIdResponse: model.GetMovieByIdResponse = await api.getMovieById(id);
-            this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
+          // Get
+          var getMovieByIdResponse: model.MoviesWatchedGetMovieByIdResponse = await api.moviesWatched.getMovieById(id);
+          this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
 
-            // Delete
-            await api.deleteMovieById(id);
+          // Delete
+          await api.moviesWatched.deleteMovieById(id);
 
-            console.log("-----------");
+          console.log("-----------");
 
-            getAllMoviesResponse = await api.getAllMovies();
-            getAllMoviesResponse.forEach(movie => {
-                this.PrintMovieInfo(movie);
-            });
+          getAllMoviesResponse = await api.moviesWatched.getAllMovies();
+          getAllMoviesResponse.forEach(movie => {
+              this.PrintMovieInfo(movie);
+          });
         } catch (error) {
             console.log(error.statusCode);
             console.log(error.response);

@@ -26,21 +26,21 @@ export interface MoviesWatchedAPIOptions extends ServiceClientOptions {
 /**
  * Optional Parameters.
  */
-export interface MoviesWatchedAPICreateMovieOptionalParams extends msRest.RequestOptionsBase {
+export interface MoviesWatchedCreateMovieOptionalParams extends msRest.RequestOptionsBase {
   body?: Movie;
 }
 
 /**
  * Optional Parameters.
  */
-export interface MoviesWatchedAPIUpdateMovieByIdOptionalParams extends msRest.RequestOptionsBase {
+export interface MoviesWatchedUpdateMovieByIdOptionalParams extends msRest.RequestOptionsBase {
   body?: Movie;
 }
 
 /**
  * Contains response data for the getAllMovies operation.
  */
-export type GetAllMoviesResponse = Array<Movie> & {
+export type MoviesWatchedGetAllMoviesResponse = Array<Movie> & {
   /**
    * The underlying HTTP response.
    */
@@ -60,7 +60,7 @@ export type GetAllMoviesResponse = Array<Movie> & {
 /**
  * Contains response data for the createMovie operation.
  */
-export type CreateMovieResponse = Movie & {
+export type MoviesWatchedCreateMovieResponse = Movie & {
   /**
    * The underlying HTTP response.
    */
@@ -80,7 +80,7 @@ export type CreateMovieResponse = Movie & {
 /**
  * Contains response data for the getMovieById operation.
  */
-export type GetMovieByIdResponse = Movie & {
+export type MoviesWatchedGetMovieByIdResponse = Movie & {
   /**
    * The underlying HTTP response.
    */
