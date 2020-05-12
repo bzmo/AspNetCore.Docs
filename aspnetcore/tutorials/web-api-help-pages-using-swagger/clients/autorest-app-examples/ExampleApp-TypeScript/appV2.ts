@@ -1,8 +1,6 @@
 import { MoviesWatchedAPI } from "./typescript/v2/src/moviesWatchedAPI";
 import * as model from "./typescript/v2/src/models/index";
 
-type MovieOrProblemDetails = model.Movie | null;
-
 export class appV2 {
 
     public static async SendAPIRequests(): Promise<void> {
@@ -19,8 +17,8 @@ export class appV2 {
 
         try {
             // Get All
-            var getAllMoviesResponse: model.MoviesWatchedGetAllMoviesResponse = await api.moviesWatched.getAllMovies();
-            getAllMoviesResponse.forEach((movie: model.Movie) => {
+            var movies: model.Movie[] = await api.moviesWatched.getAllMovies();
+            movies.forEach((movie: model.Movie) => {
                 this.PrintMovieInfo(movie);
             });
 
@@ -30,10 +28,8 @@ export class appV2 {
             var createMovieOptions: model.MoviesWatchedCreateMovieOptionalParams = {
                 body: movie
             };
-            var createMovieResponse: model.MoviesWatchedCreateMovieResponse = await api.moviesWatched.createMovie(createMovieOptions);
-            this.ProcessResponse(createMovieResponse._response.parsedBody, (m: model.Movie): void => {
-                movie = m;
-            });
+            movie = await api.moviesWatched.createMovie(createMovieOptions);
+            this.PrintMovieInfo(movie);
 
             console.log("-----------");
 
@@ -51,20 +47,19 @@ export class appV2 {
             var updateMovieRatingOptions: model.MoviesWatchedUpdateMovieRatingOptionalParams = {
                 body: 4.9
             };
-            var updateMovieRatingResponse = await api.moviesWatched.updateMovieRating(id, updateMovieRatingOptions);
-            this.ProcessResponse(updateMovieRatingResponse._response.parsedBody);
-
+            await api.moviesWatched.updateMovieRating(id, updateMovieRatingOptions);
+            
             // Get
-            var getMovieByIdResponse: model.MoviesWatchedGetMovieByIdResponse = await api.moviesWatched.getMovieById(id);
-            this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
+            movie = await api.moviesWatched.getMovieById(id);
+            this.PrintMovieInfo(movie);
 
             // Delete
             await api.moviesWatched.deleteMovieById(id);
 
             console.log("-----------");
 
-            getAllMoviesResponse = await api.moviesWatched.getAllMovies();
-            getAllMoviesResponse.forEach(movie => {
+            movies = await api.moviesWatched.getAllMovies();
+            movies.forEach(movie => {
                 this.PrintMovieInfo(movie);
             });
         } catch(error) {
@@ -74,19 +69,9 @@ export class appV2 {
         }
     }
 
-    public static PrintMovieInfo(movie: model.Movie): void {
-        var movieInfo: string = `${movie.id} ${movie.name} ${movie.rating} ${movie.comment}`;
-        console.log(movieInfo);
-    }
-
-    private static ProcessResponse(response: MovieOrProblemDetails, fn?: Function): void {
-        if (response == null) {
-            return;
-        } else {
-            this.PrintMovieInfo(response);
-            if (fn) {
-                fn(response);
-            }
-        }
+  public static PrintMovieInfo(movie: model.Movie): void {
+      if (movie == null) return;
+      var movieInfo: string = `${movie.id} ${movie.name} ${movie.rating} ${movie.comment}`;
+      console.log(movieInfo);
     }
 }

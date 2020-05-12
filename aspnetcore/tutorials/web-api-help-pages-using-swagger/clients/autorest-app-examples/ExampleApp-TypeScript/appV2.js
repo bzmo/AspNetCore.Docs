@@ -24,8 +24,8 @@ class appV2 {
             };
             try {
                 // Get All
-                var getAllMoviesResponse = yield api.moviesWatched.getAllMovies();
-                getAllMoviesResponse.forEach((movie) => {
+                var movies = yield api.moviesWatched.getAllMovies();
+                movies.forEach((movie) => {
                     this.PrintMovieInfo(movie);
                 });
                 console.log("-----------");
@@ -33,10 +33,8 @@ class appV2 {
                 var createMovieOptions = {
                     body: movie
                 };
-                var createMovieResponse = yield api.moviesWatched.createMovie(createMovieOptions);
-                this.ProcessResponse(createMovieResponse._response.parsedBody, (m) => {
-                    movie = m;
-                });
+                movie = yield api.moviesWatched.createMovie(createMovieOptions);
+                this.PrintMovieInfo(movie);
                 console.log("-----------");
                 var id = movie.id;
                 // Update
@@ -50,16 +48,15 @@ class appV2 {
                 var updateMovieRatingOptions = {
                     body: 4.9
                 };
-                var updateMovieRatingResponse = yield api.moviesWatched.updateMovieRating(id, updateMovieRatingOptions);
-                this.ProcessResponse(updateMovieRatingResponse._response.parsedBody);
+                yield api.moviesWatched.updateMovieRating(id, updateMovieRatingOptions);
                 // Get
-                var getMovieByIdResponse = yield api.moviesWatched.getMovieById(id);
-                this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
+                movie = yield api.moviesWatched.getMovieById(id);
+                this.PrintMovieInfo(movie);
                 // Delete
                 yield api.moviesWatched.deleteMovieById(id);
                 console.log("-----------");
-                getAllMoviesResponse = yield api.moviesWatched.getAllMovies();
-                getAllMoviesResponse.forEach(movie => {
+                movies = yield api.moviesWatched.getAllMovies();
+                movies.forEach(movie => {
                     this.PrintMovieInfo(movie);
                 });
             }
@@ -71,19 +68,10 @@ class appV2 {
         });
     }
     static PrintMovieInfo(movie) {
+        if (movie == null)
+            return;
         var movieInfo = `${movie.id} ${movie.name} ${movie.rating} ${movie.comment}`;
         console.log(movieInfo);
-    }
-    static ProcessResponse(response, fn) {
-        if (response == null) {
-            return;
-        }
-        else {
-            this.PrintMovieInfo(response);
-            if (fn) {
-                fn(response);
-            }
-        }
     }
 }
 exports.appV2 = appV2;

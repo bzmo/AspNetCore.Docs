@@ -24,8 +24,8 @@ class appV1 {
             };
             try {
                 // Get All
-                var getAllMoviesResponse = yield api.moviesWatched.getAllMovies();
-                getAllMoviesResponse.forEach((movie) => {
+                var movies = yield api.moviesWatched.getAllMovies();
+                movies.forEach((movie) => {
                     this.PrintMovieInfo(movie);
                 });
                 console.log("-----------");
@@ -33,10 +33,8 @@ class appV1 {
                 var createMovieOptions = {
                     body: movie
                 };
-                var createMovieResponse = yield api.moviesWatched.createMovie(createMovieOptions);
-                this.ProcessResponse(createMovieResponse._response.parsedBody, (m) => {
-                    movie = m;
-                });
+                movie = yield api.moviesWatched.createMovie(createMovieOptions);
+                this.PrintMovieInfo(movie);
                 var id = movie.id;
                 console.log("-----------");
                 // Update
@@ -47,13 +45,13 @@ class appV1 {
                 };
                 yield api.moviesWatched.updateMovieById(id, updateMovieOptions);
                 // Get
-                var getMovieByIdResponse = yield api.moviesWatched.getMovieById(id);
-                this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
+                movie = yield api.moviesWatched.getMovieById(id);
+                this.PrintMovieInfo(movie);
                 // Delete
                 yield api.moviesWatched.deleteMovieById(id);
                 console.log("-----------");
-                getAllMoviesResponse = yield api.moviesWatched.getAllMovies();
-                getAllMoviesResponse.forEach(movie => {
+                movies = yield api.moviesWatched.getAllMovies();
+                movies.forEach(movie => {
                     this.PrintMovieInfo(movie);
                 });
             }
@@ -65,19 +63,10 @@ class appV1 {
         });
     }
     static PrintMovieInfo(movie) {
+        if (movie == null)
+            return;
         var movieInfo = `${movie.id} ${movie.name} ${movie.rating} ${movie.comment}`;
         console.log(movieInfo);
-    }
-    static ProcessResponse(response, fn) {
-        if (response == null) {
-            return;
-        }
-        else {
-            this.PrintMovieInfo(response);
-            if (fn) {
-                fn(response);
-            }
-        }
     }
 }
 exports.appV1 = appV1;

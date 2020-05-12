@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -51,6 +52,25 @@ namespace MoviesWatched
 
             services.AddSwaggerGen(c =>
             {
+                c.EnableAnnotations();
+                c.CustomOperationIds(d =>
+                {
+                    var descriptor = d.ActionDescriptor as ControllerActionDescriptor;
+                    if (descriptor != null)
+                    {
+                      return string.Format("{0}_{1}", descriptor.ControllerName, descriptor.ActionName);
+                    }
+
+                    return d.ActionDescriptor.DisplayName;
+                });
+                c.TagActionsBy(d =>
+                {
+                    var descriptor = d.ActionDescriptor as ControllerActionDescriptor;
+                    var tag = (descriptor == null) ? d.ActionDescriptor.DisplayName : descriptor.ControllerName;
+
+                    return new string[] { tag };
+                });
+
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);

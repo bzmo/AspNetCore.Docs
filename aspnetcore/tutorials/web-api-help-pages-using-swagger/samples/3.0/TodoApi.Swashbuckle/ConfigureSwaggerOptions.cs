@@ -27,7 +27,6 @@
         /// <inheritdoc />
         public void Configure(SwaggerGenOptions options)
         {
-            options.EnableAnnotations();
             // add a custom operation filter which sets default values
             options.OperationFilter<SwaggerDefaultValues>();
 

@@ -43,7 +43,6 @@ namespace MoviesWatched.Controllers.v1
         [SwaggerOperation(
             Summary = "Gets all watched movies.",
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
-            OperationId = controllerName + "_" + nameof(GetAllMovies),
             Tags = new string[] {controllerName}
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IEnumerable<Movie>))]
@@ -59,7 +58,6 @@ namespace MoviesWatched.Controllers.v1
         [SwaggerOperation(
             Summary = "Gets a specific movie by its ID.",
             Description = "Fetch a movie watched during COVID-19 shelter-in-place.",
-            OperationId = controllerName + "_" + nameof(GetMovieById),
             Tags = new string[] { controllerName }
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "The movie was found.", Type = typeof(Movie))]
@@ -81,7 +79,6 @@ namespace MoviesWatched.Controllers.v1
         [SwaggerOperation(
             Summary = "Creates a Movie.",
             Description = "Record a movie watched during COVID-19 shelter-in-place.",
-            OperationId = controllerName + "_" + nameof(CreateMovie),
             Tags = new string[] { controllerName }
         )]
         [SwaggerResponse(StatusCodes.Status201Created, "The movie was created.", Type = typeof(Movie))]
@@ -109,7 +106,6 @@ namespace MoviesWatched.Controllers.v1
         [SwaggerOperation(
             Summary = "Updates an existing Movie.",
             Description = "Changes the information for a watched movie.",
-            OperationId = controllerName + "_" + nameof(UpdateMovieById),
             Tags = new string[] { controllerName }
         )]
         [SwaggerResponse(StatusCodes.Status204NoContent, "The movie was updated.")]
@@ -146,7 +142,6 @@ namespace MoviesWatched.Controllers.v1
         [SwaggerOperation(
             Summary = "Deletes a specific Movie.",
             Description = "Removes a watched movie.",
-            OperationId = controllerName + "_" + nameof(DeleteMovieById),
             Tags = new string[] { controllerName }
         )]
         [SwaggerResponse(StatusCodes.Status204NoContent, "The movie was deleted.")]

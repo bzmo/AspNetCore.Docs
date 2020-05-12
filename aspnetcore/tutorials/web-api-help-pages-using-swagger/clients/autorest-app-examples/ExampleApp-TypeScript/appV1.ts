@@ -1,6 +1,5 @@
 import { MoviesWatchedAPI } from "./typescript/v1/src/moviesWatchedAPI";
 import * as model from "./typescript/v1/src/models/index";
-import { RestError } from "@azure/ms-rest-js";
 
 type MovieOrProblemDetails = model.Movie | null;
 
@@ -20,8 +19,8 @@ export class appV1 {
 
         try {
             // Get All
-          var getAllMoviesResponse: model.MoviesWatchedGetAllMoviesResponse = await api.moviesWatched.getAllMovies();
-          getAllMoviesResponse.forEach((movie: model.Movie) => {
+          var movies: model.Movie[] = await api.moviesWatched.getAllMovies();
+          movies.forEach((movie: model.Movie) => {
               this.PrintMovieInfo(movie);
           });
 
@@ -31,10 +30,8 @@ export class appV1 {
           var createMovieOptions: model.MoviesWatchedCreateMovieOptionalParams = {
               body: movie
           };
-          var createMovieResponse: model.MoviesWatchedCreateMovieOptionalParams = await api.moviesWatched.createMovie(createMovieOptions);
-          this.ProcessResponse(createMovieResponse._response.parsedBody, (m: model.Movie): void => {
-              movie = m;
-          });
+          movie = await api.moviesWatched.createMovie(createMovieOptions);
+          this.PrintMovieInfo(movie);
 
           var id: number = movie.id;
 
@@ -49,16 +46,16 @@ export class appV1 {
           await api.moviesWatched.updateMovieById(id, updateMovieOptions);
 
           // Get
-          var getMovieByIdResponse: model.MoviesWatchedGetMovieByIdResponse = await api.moviesWatched.getMovieById(id);
-          this.ProcessResponse(getMovieByIdResponse._response.parsedBody);
+          movie = await api.moviesWatched.getMovieById(id);
+          this.PrintMovieInfo(movie);
 
           // Delete
           await api.moviesWatched.deleteMovieById(id);
 
           console.log("-----------");
 
-          getAllMoviesResponse = await api.moviesWatched.getAllMovies();
-          getAllMoviesResponse.forEach(movie => {
+          movies = await api.moviesWatched.getAllMovies();
+          movies.forEach(movie => {
               this.PrintMovieInfo(movie);
           });
         } catch (error) {
@@ -68,19 +65,9 @@ export class appV1 {
         }
     }
 
-    public static PrintMovieInfo(movie: model.Movie): void {
+  public static PrintMovieInfo(movie: model.Movie): void {
+        if (movie == null) return;
         var movieInfo: string = `${movie.id} ${movie.name} ${movie.rating} ${movie.comment}`;
         console.log(movieInfo);
-    }
-
-    private static ProcessResponse(response: MovieOrProblemDetails, fn?: Function): void {
-        if (response == null) {
-            return;
-        } else {
-            this.PrintMovieInfo(response);
-            if (fn) {
-                fn(response);
-            }
-        }
     }
 }
