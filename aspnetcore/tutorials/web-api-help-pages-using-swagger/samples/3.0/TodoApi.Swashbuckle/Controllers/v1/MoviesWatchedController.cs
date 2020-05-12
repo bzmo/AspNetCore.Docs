@@ -43,7 +43,6 @@ namespace MoviesWatched.Controllers.v1
         [SwaggerOperation(
             Summary = "Gets all watched movies.",
             Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
-            Tags = new string[] {controllerName}
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IEnumerable<Movie>))]
         public async virtual Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
@@ -58,7 +57,6 @@ namespace MoviesWatched.Controllers.v1
         [SwaggerOperation(
             Summary = "Gets a specific movie by its ID.",
             Description = "Fetch a movie watched during COVID-19 shelter-in-place.",
-            Tags = new string[] { controllerName }
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "The movie was found.", Type = typeof(Movie))]
         public async virtual Task<ActionResult<Movie>> GetMovieById([FromRoute, SwaggerParameter("Movie Id", Required = true)] long id)
