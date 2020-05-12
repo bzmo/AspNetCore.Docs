@@ -26,7 +26,7 @@ namespace MoviesWatched.Controllers.v2
         [HttpGet]
         [SwaggerOperation(
             Summary = "Gets all watched movies sorted alphabetically.",
-            Description = "Fetch all movies watched during COVID-19 shelter-in-place.",
+            Description = "Fetch all movies watched during COVID-19 shelter-in-place."
         )]
         [SwaggerResponse(StatusCodes.Status200OK, "Movies have been fetched", Type = typeof(IEnumerable<Movie>))]
         public async override Task<ActionResult<IEnumerable<Movie>>> GetAllMovies()
@@ -42,7 +42,7 @@ namespace MoviesWatched.Controllers.v2
         [HttpPatch("{id:long}")]
         [SwaggerOperation(
             Summary = "Updates a rating of a specific Movie.",
-            Description = "Updates movie rating.",
+            Description = "Updates movie rating."
         )]
         [SwaggerResponse(StatusCodes.Status204NoContent, "The movie rating was updated.")]
         public async virtual Task<IActionResult> UpdateMovieRating(
